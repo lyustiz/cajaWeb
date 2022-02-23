@@ -1,0 +1,134 @@
+﻿@model Caja.MVC.Core.Models.PorcentajePremioModel
+@using Microsoft.AspNetCore.Http
+@using Caja.MVC.Core.App
+
+@{
+    ViewData["Title"] = "Porcentaje Premios";
+    Model.IdUsuario = new General(Context.Session).UsuarioActual().Id;
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">General</a></li>
+    <li class="breadcrumb-item active">Porcentaje Premios</li>
+</ul>
+
+<hr class="mb-4">
+
+@using (Html.BeginForm("Save", "PorcentajePremios", FormMethod.Post))
+{
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="card">
+
+        <div class="card-header">
+            <h5 class="card-title">Porcentaje Premios</h5>
+        </div>
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input asp-for="IdPorcentajePremio" class="form-control" type="hidden" />
+            </div>
+
+            <div class="form-group">
+                <input asp-for="IdUsuario" class="form-control" type="hidden" />
+            </div>
+
+            <div class="form-group">
+                <div class="form-check form-switch">
+                    <input asp-for="ActivoDescuento" type="checkbox" class="form-check-input" />
+                    <label asp-for="ActivoDescuento" class="control-label"></label>
+                </div>
+            </div>
+
+            <table class="table">
+                @*<caption>Comentario</caption>*@
+                <thead>
+                    <tr>
+                        <th scope="col">Premio</th>
+                        <th scope="col">Cartones</th>
+                        <th scope="col">Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Premio 1</th>
+                        <td>
+                            <input asp-for="Premio1Cartones" class="form-control" />
+                            <span asp-validation-for="Premio1Cartones" class="text-danger"></span>
+                        </td>
+                        <td>
+                            <input asp-for="Premio1Porcentaje" class="form-control" />
+                            <span asp-validation-for="Premio1Porcentaje" class="text-danger"></span>
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <th scope="row">Premio 2</th>
+                        <td>
+                            <input asp-for="Premio2Cartones" class="form-control" />
+                            <span asp-validation-for="Premio2Cartones" class="text-danger"></span>
+                        </td>
+                        <td>
+                            <input asp-for="Premio2Porcentaje" class="form-control" />
+                            <span asp-validation-for="Premio2Porcentaje" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Premio 3</th>
+                        <td>
+                            <input asp-for="Premio3Cartones" class="form-control" />
+                            <span asp-validation-for="Premio3Cartones" class="text-danger"></span>
+                        </td>
+                        <td>
+                            <input asp-for="Premio3Porcentaje" class="form-control" />
+                            <span asp-validation-for="Premio3Porcentaje" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Premio 4</th>
+                        <td>
+                            <input asp-for="Premio4Cartones" class="form-control" />
+                            <span asp-validation-for="Premio4Cartones" class="text-danger"></span>
+                        </td>
+                        <td>
+                            <input asp-for="Premio4Porcentaje" class="form-control" />
+                            <span asp-validation-for="Premio4Porcentaje" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Premio 5</th>
+                        <td>
+                            <input asp-for="Premio5Cartones" class="form-control" />
+                            <span asp-validation-for="Premio5Cartones" class="text-danger"></span>
+                        </td>
+                        <td>
+                            <input asp-for="Premio5Porcentaje" class="form-control" />
+                            <span asp-validation-for="Premio5Porcentaje" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="card-footer">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

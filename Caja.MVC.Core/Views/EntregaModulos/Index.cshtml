@@ -1,0 +1,72 @@
+﻿@model Caja.MVC.Core.Models.Paginator.DataPaginador<Caja.MVC.Core.Models.ClienteModuloModel>
+DataPaginador<ClienteModuloModel>
+
+@{
+    ViewData["Title"] = "Entrega de Módulos";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Entrega de Módulos</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "EntregaModulos")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+       
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">IdModulo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Juego Inicio</th>
+                    <th scope="col">Juego Fin</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Lista.Count > 0)
+                {
+                    @foreach (var registro in Model.Lista)
+                    {
+                <tr>
+                    <th scope="row">@registro.IdClienteModulo</th>
+                    <td>@registro.NombreCliente</td>
+                    <td>@registro.IdModulo</td>
+                    <td>@registro.Estado</td>
+                    <td>@registro.IdJuegoInicio</td>
+                    <td>@registro.IdJuegoFin</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "EntregaModulos", new { id = registro.IdClienteModulo })
+                    </td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

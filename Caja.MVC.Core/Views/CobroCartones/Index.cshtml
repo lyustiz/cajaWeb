@@ -1,0 +1,537 @@
+﻿@model Caja.MVC.Core.Models.CobroCartoneriaModel
+
+@{
+    ViewData["Title"] = "Cobro de Cartones";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Juegos</a></li>
+    <li class="breadcrumb-item"><a href="#">Procesos</a></li>
+    <li class="breadcrumb-item active">Cobro de Cartones</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div  class="card-header">
+        <button id="btnImprimir" class="btn btn-tertiary">
+            <i class="fa fa-print"></i>
+            Imprimir Planilla
+        </button>
+        <button onclick="guardar();" class="btn btn-tertiary">
+            <i class="fa fa-save"></i>
+            Guardar
+        </button>
+    </div>
+    <div class="card-body">
+        <fieldset>
+            <legend class="legend-size-medium">Búsqueda Vendedor</legend>
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-6">
+                    <label class="control-label">Criterio de Búsqueda:</label>
+                    <input asp-for="FiltroBusqueda" class="form-control" />
+                </div>
+                <div class="form-group col-xs-1 col-sm-1">
+                    <label class="control-label"></label>
+                    <button class="form-control btn btn-success float-right" title="Filtrar Información" onclick="buscar();">
+                        <i class="fa fa-search"></i>
+                        Filtrar
+                    </button>
+                </div>
+                <div class="form-group col-xs-2 col-sm-2">
+                    <label asp-for="IdProgramacionJuego" class="control-label"></label>
+                    <select asp-for="IdProgramacionJuego" asp-items="Model.ListaProgramaciones" class="form-control" style="color: rgb(0 0 255); font-weight: 700;"
+                            onchange="buscar()">
+                    </select>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend class="legend-size-medium">Vendedores</legend>
+            <div class="row">
+                <table id="tablaVendedores" class="display" width="100%"></table>
+            </div>
+        </fieldset>
+
+        <div class="row">
+            <div class="col-12">
+                <fieldset>
+                    <legend class="legend-size-medium">Registro</legend>
+                    <div class="row">
+                        <input type="hidden" id="hdfIdVendedor" />
+                        <input type="hidden" id="hdfIdProgramacionVendedor" />
+                        
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Cartones Devueltos</label>
+                            <input disabled id="txtCartonesDevueltos" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">No Hojas Entregadas</label>
+                            <input disabled id="txtNoHojasEntregadas" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">% Comisión</label>
+                            <input disabled id="txtPorcentajeComision" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Cartones Cortesia</label>
+                            <input disabled id="txtCartonesCortesia" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Gasto Cortesia</label>
+                            <input disabled id="txtGastoCortesia" class="form-control" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <fieldset>
+                    <legend class="legend-size-medium">Resumen del vendedor</legend>
+
+                    <div class="row">                       
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Total Cartones</label>
+                            <input disabled id="txtTotalCartones" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Total Cartones Efectivos</label>
+                            <input disabled id="txtTotalCartonesEfectivos" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Total Ventas</label>
+                            <input disabled id="txtTotalVentas" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Cartones Cortesia</label>
+                            <input disabled id="txtTotalCartonesCortesia" class="form-control" />
+                        </div>   
+                        @*<div class="form-group col-xs-2 col-sm-2">
+                            <label class="control-label"></label>
+                            <button class="form-control btn btn-success float-right" id="btnAgregarHoja" title="Agregar Hoja" onclick="agregarHoja();">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>*@
+
+                    </div>                       
+                       <div class="row">                      
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Cartones Devuetos</label>
+                            <input disabled id="txtCartonesDevueltosR" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Valor Comisión</label>
+                            <input disabled id="txtValorComision" class="form-control" />
+                        </div>                       
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Abonos</label>
+                            <input disabled id="txtAbonos" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Gasto Cortesia</label>
+                            <input disabled id="txtGastoCortesiaR" class="form-control" />
+                        </div>                       
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Total a Pagar</label>
+                            <input disabled id="txtTotalPagar" class="form-control" />
+                        </div>
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Faltante</label>
+                            <input id="txtFaltante" class="form-control" />
+                        </div>                       
+                        <div class="form-group col-xs-3 col-sm-3">
+                            <label class="control-label">Total Recibido</label>
+                            <input disabled id="txtTotalRecibido" class="form-control" />
+                        </div>
+                       </div> 
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    document.getElementById('btnImprimir').onclick = function () {
+        window.open('/CobroCartones/Print?Id=' + document.getElementById('IdProgramacionJuego').value, 'Reporte', 'menubar=0,location=0,toolbar=0');
+    }
+
+    var inputFaltante = document.getElementById("txtFaltante");
+
+    
+    inputFaltante.addEventListener("keyup", function(event) {
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        //document.getElementById("myBtn").click();
+        guardarFaltante(inputFaltante.value);
+      }
+    });
+
+
+
+    ///****************************************************** */
+    
+    function guardarFaltante(valor) {
+        
+        alert("se preciono enter "+valor);
+        debugger;
+
+        if (valor > 0) {
+            $.ajax({
+                url: "@Url.Action("GuardarFaltante")" 
+                + '?pIdVendedor=' + document.getElementById('hdfIdVendedor').value 
+                + '&pIdProgramacion=' + document.getElementById('hdfIdProgramacionVendedor').value
+                + '&pFaltante=' + valor,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                error: function (respuesta) {
+                    console.log(respuesta);
+                },
+                success: function (respuesta) {
+                    if (respuesta.ok) {
+                        console.log(respuesta.resumen);
+                    }
+                }
+            });
+        }
+        else {
+            var tablaHojas = $('#tablaHojas').DataTable();
+            tablaHojas.clear().draw();
+            document.getElementById('txtCartonesCortesia').value = "0";
+            calcularTotalCartones();
+        }
+    }
+    //******************************************************* */
+
+
+    var cantidadCartonesHoja = @Model.NumeroCartonesHoja;
+
+    $(document).ready(function () {
+
+        inicializarControles();
+
+        function inicializarControles() {
+
+            var tabla = $('#tablaVendedores').DataTable({
+                select: true,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+                },
+                data: [],
+                columns: [
+                    { title: "Código Vendedor" },
+                    { title: "Nombres" },
+                    { title: "Apellidos" },
+                    { title: "Juego" },
+                    { title: "No. Hojas" },
+                    { "defaultContent": "<button class='btn btn-sm btn-info' title='Seleccionar Vendedor'>Seleccionar Registro</button>" }
+                ]
+            });
+
+            var tablaHojas = $('#tablaHojas').DataTable({
+                select: true,
+                searching: false,
+                paging: false,
+                ordering: false,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+                },
+                data: [],
+                columns: [
+                    { title: "Hoja" },
+                    { "defaultContent": "<button class='btn btn-sm btn-warning' title='Eliminar Hoja'><i class='fa fa-trash'></button>" }
+                ]
+            });
+
+            @if (@Model != null && @Model.Detalle.NotIsNullOrZeroItems())
+            {
+                foreach (var item in @Model.Detalle)
+                {
+                    <text>
+                        tabla.row.add([
+                            @item.IdVendedor,
+                            '@item.Nombres',
+                            '@item.Apellidos',
+                            @item.IdProgramacionJuego,
+                            @item.CantidadHojas
+                        ]).draw(false);
+                    </text>
+                }
+            }
+
+            $('#tablaVendedores tbody').on('click', 'tr', function () {
+                var registro = tabla.row(this).data();
+                console.log(tabla.row(this).data());
+                //document.getElementById('txtVendedor').value = registro[1] + ' ' + registro[2];
+                document.getElementById('hdfIdVendedor').value = registro[0];
+                document.getElementById('hdfIdProgramacionVendedor').value = registro[3];
+
+                consultarInfoResumenVendedor();
+
+            });
+
+            //$('#tablaHojas tbody').on('click', 'button', function () {
+            //    var hoja = tablaHojas.row($(this).parents('tr')).data();
+            //    tablaHojas.row($(this).parents('tr')).remove().draw(false);
+            //    var idProg = +document.getElementById('hdfIdProgramacionVendedor').value;
+
+            //    if (idProg == 0) {
+            //        idProg = +document.getElementById('IdProgramacionJuego').value;
+            //    }
+
+            //    $.ajax({
+            //            url: "@Url.Action("EliminarHoja")" + '?pIdVendedor=' + document.getElementById('hdfIdVendedor').value + '&pIdProgramacion=' + idProg + '&pHoja=' + hoja[0],
+            //            type: "GET",
+            //            contentType: "application/json; charset=utf-8",
+            //            dataType: "json",
+            //            error: function (respuesta) {
+            //                console.log(respuesta);
+            //            },
+            //            success: function (respuesta) {
+            //                if (respuesta.ok) {
+            //                    debugger;
+
+            //                    document.getElementById('txtHoja').value = '';
+            //                    document.getElementById('txtHoja').focus();
+
+            //                    calcularTotalCartones();
+            //                }
+            //                else {
+            //                    toastr.warning(respuesta.mensaje, 'Mensaje Caja', { timeOut: 5000, positionClass: "toast-top-center", progressBar: true });
+            //                }
+            //            }
+            //        });
+            //});
+        }
+    });
+
+    function consultarInfoResumenVendedor() {
+
+        debugger;
+
+        if (+document.getElementById('hdfIdProgramacionVendedor').value > 0) {
+            $.ajax({
+                url: "@Url.Action("SeleccionoVendedor")" + '?pIdVendedor=' + document.getElementById('hdfIdVendedor').value + '&pIdProgramacion=' + document.getElementById('hdfIdProgramacionVendedor').value,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                error: function (respuesta) {
+                    console.log(respuesta);
+                },
+                success: function (respuesta) {
+                    if (respuesta.ok) {
+                        console.log(respuesta.resumen);
+                        console.log(respuesta.hojas);
+
+                        debugger;
+
+                        //limpiarControles();
+                        document.getElementById('txtCartonesDevueltos').value = respuesta.resumen.cartonesDevueltos;
+                        document.getElementById('txtCartonesDevueltosR').value = respuesta.resumen.cartonesDevueltos;
+                        document.getElementById('txtNoHojasEntregadas').value = respuesta.resumen.numeroHojasDevueltas;
+                        document.getElementById('txtPorcentajeComision').value = respuesta.resumen.porcentajeComision;
+                        document.getElementById('txtCartonesCortesia').value = respuesta.resumen.cartonesCortesia;
+                        document.getElementById('txtTotalCartones').value = respuesta.resumen.totalCartones;
+                        document.getElementById('txtTotalCartonesEfectivos').value = respuesta.resumen.totalCartones-respuesta.resumen.cartonesDevueltos;
+                        document.getElementById('txtTotalVentas').value = respuesta.resumen.valorTotal;
+                        document.getElementById('txtTotalCartonesCortesia').value = respuesta.resumen.gastoCortesia;
+                        document.getElementById('txtValorComision').value = "0";
+                        document.getElementById('txtAbonos').value = respuesta.resumen.pagoAnticipado;
+                        document.getElementById('txtGastoCortesia').value = respuesta.resumen.gastoCortesia;
+                        document.getElementById('txtGastoCortesiaR').value = respuesta.resumen.gastoCortesia;
+                        document.getElementById('txtTotalPagar').value = respuesta.resumen.valorPendiente;
+                        document.getElementById('txtFaltante').value = respuesta.resumen.faltante;
+                        document.getElementById('txtTotalRecibido').value = 0;
+
+                        //if (respuesta.resumen.cobrado == 1) {
+                        //    configurarControlesCobrado(false);
+                        //}
+
+                        //var tablaHojas = $('#tablaHojas').DataTable();
+                        //tablaHojas.clear().draw();
+
+                        //if (respuesta.hojas != null && respuesta.hojas.length > 0) {
+
+                        //    for (var i = 0; respuesta.hojas.length > i; i++) {
+                        //        tablaHojas.row.add([respuesta.hojas[i].numeroHoja]).draw(false);
+                        //    }
+                        //}
+
+                        //calcularTotalCartones();
+                    }
+                }
+            });
+        }
+        else {
+            var tablaHojas = $('#tablaHojas').DataTable();
+            tablaHojas.clear().draw();
+            document.getElementById('txtCartonesCortesia').value = "0";
+            calcularTotalCartones();
+        }
+    }
+
+    function limpiarControles() {
+        document.getElementById('txtCartonesCortesia').value = "0";
+        //document.getElementById('txtTotalCartones').value = "0";
+        document.getElementById('txtHoja').value = "";
+
+        document.getElementById('txtCartonesCortesia').disabled = false;
+        document.getElementById('txtHoja').disabled = false;
+    }
+
+    function configurarControlesCobrado(pHabilitar) {
+        document.getElementById('txtCartonesCortesia').disabled = !pHabilitar;
+        document.getElementById('txtHoja').disabled = !pHabilitar;
+    }
+
+    function buscar() {
+        debugger;
+        location.href = '/CobroCartones/Index?Id=' + document.getElementById('IdProgramacionJuego').value + '&filtroBusqueda=' + document.getElementById('FiltroBusqueda').value;
+    }
+
+    function agregarHoja() {
+        var mensaje = '';
+        var continuar = true;
+        var numeroHoja = +document.getElementById('txtHoja').value;
+
+        debugger;
+
+        if (+document.getElementById('hdfIdVendedor').value <= 0) {
+            mensaje = "Debe seleccionar un VENDEDOR antes de agregar hojas.";
+            continuar = false;
+        }
+        else if (numeroHoja <= 0) {
+            mensaje = "Escriba un numero de hoja VALIDO para entregar por favor.";
+            continuar = false;
+        }
+
+        var tabla = $('#tablaHojas').DataTable();
+        var datos = tabla.rows().data();
+
+        if (datos.length) {
+            for (var i = 0; datos.length > i; i++) {
+                if (datos[i][0] == numeroHoja) {
+                    document.getElementById('txtHoja').value = '';
+                    document.getElementById('txtHoja').focus();
+                    continuar = false;
+                    mensaje = 'La hoja que intenta agregar ya esta en la lista.';
+                    break;
+                };
+            }
+        }
+
+        var idProg = +document.getElementById('hdfIdProgramacionVendedor').value;
+
+        if (idProg == 0) {
+            idProg = +document.getElementById('IdProgramacionJuego').value;
+        }
+
+        if (continuar) {
+            $.ajax({
+                url: "@Url.Action("AgregarHoja")" + '?pIdVendedor=' + document.getElementById('hdfIdVendedor').value + '&pIdProgramacion=' + idProg + '&pHoja=' + document.getElementById('txtHoja').value,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                error: function (respuesta) {
+                    console.log(respuesta);
+                },
+                success: function (respuesta) {
+                    if (respuesta.ok) {
+
+                        debugger;
+
+                        var tablaHojas = $('#tablaHojas').DataTable();
+                        tablaHojas.row.add([numeroHoja]).draw(false);
+
+                        document.getElementById('txtHoja').value = '';
+                        document.getElementById('txtHoja').focus();
+
+                        calcularTotalCartones();
+                    }
+                    else {
+                        toastr.warning(respuesta.mensaje, 'Mensaje Caja', { timeOut: 5000, positionClass: "toast-top-center", progressBar: true });
+                    }
+                }
+            });
+        }
+        else {
+            toastr.warning(mensaje, 'Mensaje Caja', { timeOut: 5000, positionClass: "toast-top-center", progressBar: true });
+        }
+    }
+
+    //function calcularTotalCartones() {
+    //    var tablaHojas = $('#tablaHojas').DataTable();
+    //    var datos = tablaHojas.rows().data();
+
+    //    document.getElementById('txtTotalCartones').value = 0;
+
+    //    if (datos != null && datos.length > 0) {
+    //        var totalCartones = cantidadCartonesHoja * datos.length;
+    //        document.getElementById('txtTotalCartones').value = totalCartones;
+    //    }
+    //}
+
+    function guardar() {
+
+        debugger;
+        var idProg = +document.getElementById('hdfIdProgramacionVendedor').value;
+
+        if (idProg == 0) {
+            idProg = +document.getElementById('IdProgramacionJuego').value;
+        }
+
+        var jsonObject = {
+            'IdProgramacionJuego': idProg,
+            'IdVendedor': document.getElementById("hdfIdVendedor").value,
+            'TotalCartones': document.getElementById("txtTotalCartones").value,
+            'CartonesCortesia': document.getElementById("txtCartonesCortesia").value,
+            'Hojas': []
+        };
+
+        var tabla = $('#tablaHojas').DataTable();
+        var datos = tabla.rows().data();
+
+        if (datos.length) {
+            for (var i = 0; datos.length > i; i++) {
+                jsonObject.Hojas.push(datos[i][0]);
+            }
+        }
+               
+
+        $.ajax({
+                url: "@Url.Action("Guardar")",
+            type: "POST",
+            data: JSON.stringify(jsonObject),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                error: function (respuesta) {
+                    console.log(respuesta);
+                },
+                success: function (respuesta) {
+                    if (respuesta.ok) {
+                        Swal.fire(respuesta.mensaje)
+                            .then(() => {
+                                location.href = '/CobroCartones/Index';
+                            });
+                    }
+                    else {
+                        Swal.fire(respuesta.mensaje);
+                    }
+                }
+            });
+    }
+
+</script>
+
+
+

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DtsEncabezadoPlanillaJuego" targetNamespace="http://tempuri.org/DtsEncabezadoPlanillaJuego.xsd" xmlns:mstns="http://tempuri.org/DtsEncabezadoPlanillaJuego.xsd" xmlns="http://tempuri.org/DtsEncabezadoPlanillaJuego.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DtsEncabezadoPlanillaJuego" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DtsEncabezadoPlanillaJuego" msprop:Generator_UserDSName="DtsEncabezadoPlanillaJuego">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Encabezado" msprop:Generator_TableClassName="EncabezadoDataTable" msprop:Generator_TableVarName="tableEncabezado" msprop:Generator_TablePropName="Encabezado" msprop:Generator_RowDeletingName="EncabezadoRowDeleting" msprop:Generator_RowChangingName="EncabezadoRowChanging" msprop:Generator_RowEvHandlerName="EncabezadoRowChangeEventHandler" msprop:Generator_RowDeletedName="EncabezadoRowDeleted" msprop:Generator_UserTableName="Encabezado" msprop:Generator_RowChangedName="EncabezadoRowChanged" msprop:Generator_RowEvArgName="EncabezadoRowChangeEvent" msprop:Generator_RowClassName="EncabezadoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumeroJuego" msprop:Generator_ColumnVarNameInTable="columnNumeroJuego" msprop:Generator_ColumnPropNameInRow="NumeroJuego" msprop:Generator_ColumnPropNameInTable="NumeroJuegoColumn" msprop:Generator_UserColumnName="NumeroJuego" type="xs:string" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Serie" msprop:Generator_ColumnVarNameInTable="columnSerie" msprop:Generator_ColumnPropNameInRow="Serie" msprop:Generator_ColumnPropNameInTable="SerieColumn" msprop:Generator_UserColumnName="Serie" type="xs:string" minOccurs="0" />
+              <xs:element name="CartonInicial" msprop:Generator_ColumnVarNameInTable="columnCartonInicial" msprop:Generator_ColumnPropNameInRow="CartonInicial" msprop:Generator_ColumnPropNameInTable="CartonInicialColumn" msprop:Generator_UserColumnName="CartonInicial" type="xs:string" minOccurs="0" />
+              <xs:element name="CartonFinal" msprop:Generator_ColumnVarNameInTable="columnCartonFinal" msprop:Generator_ColumnPropNameInRow="CartonFinal" msprop:Generator_ColumnPropNameInTable="CartonFinalColumn" msprop:Generator_UserColumnName="CartonFinal" type="xs:string" minOccurs="0" />
+              <xs:element name="ValorCarton" msprop:Generator_ColumnVarNameInTable="columnValorCarton" msprop:Generator_ColumnPropNameInRow="ValorCarton" msprop:Generator_ColumnPropNameInTable="ValorCartonColumn" msprop:Generator_UserColumnName="ValorCarton" type="xs:string" minOccurs="0" />
+              <xs:element name="ValorModulos" msprop:Generator_ColumnVarNameInTable="columnValorModulos" msprop:Generator_ColumnPropNameInRow="ValorModulos" msprop:Generator_ColumnPropNameInTable="ValorModulosColumn" msprop:Generator_UserColumnName="ValorModulos" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalPremios" msprop:Generator_ColumnVarNameInTable="columnTotalPremios" msprop:Generator_ColumnPropNameInRow="TotalPremios" msprop:Generator_ColumnPropNameInTable="TotalPremiosColumn" msprop:Generator_UserColumnName="TotalPremios" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalCartones" msprop:Generator_ColumnVarNameInTable="columnTotalCartones" msprop:Generator_ColumnPropNameInRow="TotalCartones" msprop:Generator_ColumnPropNameInTable="TotalCartonesColumn" msprop:Generator_UserColumnName="TotalCartones" type="xs:string" minOccurs="0" />
+              <xs:element name="AsistenciaSocial" msprop:Generator_ColumnVarNameInTable="columnAsistenciaSocial" msprop:Generator_ColumnPropNameInRow="AsistenciaSocial" msprop:Generator_ColumnPropNameInTable="AsistenciaSocialColumn" msprop:Generator_UserColumnName="AsistenciaSocial" type="xs:string" minOccurs="0" />
+              <xs:element name="CuentasCobrar" msprop:Generator_ColumnVarNameInTable="columnCuentasCobrar" msprop:Generator_ColumnPropNameInRow="CuentasCobrar" msprop:Generator_ColumnPropNameInTable="CuentasCobrarColumn" msprop:Generator_UserColumnName="CuentasCobrar" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalVentas" msprop:Generator_ColumnVarNameInTable="columnTotalVentas" msprop:Generator_ColumnPropNameInRow="TotalVentas" msprop:Generator_ColumnPropNameInTable="TotalVentasColumn" msprop:Generator_UserColumnName="TotalVentas" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalRecaudo" msprop:Generator_ColumnVarNameInTable="columnTotalRecaudo" msprop:Generator_ColumnPropNameInRow="TotalRecaudo" msprop:Generator_ColumnPropNameInTable="TotalRecaudoColumn" msprop:Generator_UserColumnName="TotalRecaudo" type="xs:string" minOccurs="0" />
+              <xs:element name="Faltante" msprop:Generator_ColumnVarNameInTable="columnFaltante" msprop:Generator_ColumnPropNameInRow="Faltante" msprop:Generator_ColumnPropNameInTable="FaltanteColumn" msprop:Generator_UserColumnName="Faltante" type="xs:string" minOccurs="0" />
+              <xs:element name="Efectivo" msprop:Generator_ColumnVarNameInTable="columnEfectivo" msprop:Generator_ColumnPropNameInRow="Efectivo" msprop:Generator_ColumnPropNameInTable="EfectivoColumn" msprop:Generator_UserColumnName="Efectivo" type="xs:string" minOccurs="0" />
+              <xs:element name="Banco" msprop:Generator_ColumnVarNameInTable="columnBanco" msprop:Generator_ColumnPropNameInRow="Banco" msprop:Generator_ColumnPropNameInTable="BancoColumn" msprop:Generator_UserColumnName="Banco" type="xs:string" minOccurs="0" />
+              <xs:element name="Sobrante" msprop:Generator_ColumnVarNameInTable="columnSobrante" msprop:Generator_ColumnPropNameInRow="Sobrante" msprop:Generator_ColumnPropNameInTable="SobranteColumn" msprop:Generator_UserColumnName="Sobrante" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalGastos" msprop:Generator_ColumnVarNameInTable="columnTotalGastos" msprop:Generator_ColumnPropNameInRow="TotalGastos" msprop:Generator_ColumnPropNameInTable="TotalGastosColumn" msprop:Generator_UserColumnName="TotalGastos" type="xs:string" minOccurs="0" />
+              <xs:element name="ResultadoFinal" msprop:Generator_ColumnVarNameInTable="columnResultadoFinal" msprop:Generator_ColumnPropNameInRow="ResultadoFinal" msprop:Generator_ColumnPropNameInTable="ResultadoFinalColumn" msprop:Generator_UserColumnName="ResultadoFinal" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalValorComision" msprop:Generator_ColumnVarNameInTable="columnTotalValorComision" msprop:Generator_ColumnPropNameInRow="TotalValorComision" msprop:Generator_ColumnPropNameInTable="TotalValorComisionColumn" msprop:Generator_UserColumnName="TotalValorComision" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalValorRecibido" msprop:Generator_ColumnVarNameInTable="columnTotalValorRecibido" msprop:Generator_ColumnPropNameInRow="TotalValorRecibido" msprop:Generator_ColumnPropNameInTable="TotalValorRecibidoColumn" msprop:Generator_UserColumnName="TotalValorRecibido" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalValorRecaudoCalculado" msprop:Generator_ColumnVarNameInTable="columnTotalValorRecaudoCalculado" msprop:Generator_ColumnPropNameInRow="TotalValorRecaudoCalculado" msprop:Generator_ColumnPropNameInTable="TotalValorRecaudoCalculadoColumn" msprop:Generator_UserColumnName="TotalValorRecaudoCalculado" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalValorDiferencia" msprop:Generator_ColumnVarNameInTable="columnTotalValorDiferencia" msprop:Generator_ColumnPropNameInRow="TotalValorDiferencia" msprop:Generator_ColumnPropNameInTable="TotalValorDiferenciaColumn" msprop:Generator_UserColumnName="TotalValorDiferencia" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalValorPremios" msprop:Generator_ColumnVarNameInTable="columnTotalValorPremios" msprop:Generator_ColumnPropNameInRow="TotalValorPremios" msprop:Generator_ColumnPropNameInTable="TotalValorPremiosColumn" msprop:Generator_UserColumnName="TotalValorPremios" type="xs:string" minOccurs="0" />
+              <xs:element name="DetallePremios" msprop:Generator_TableClassName="DetallePremiosDataTable" msprop:Generator_TableVarName="tableDetallePremios" msprop:Generator_TablePropName="DetallePremios" msprop:Generator_RowDeletingName="DetallePremiosRowDeleting" msprop:Generator_RowChangingName="DetallePremiosRowChanging" msprop:Generator_RowEvHandlerName="DetallePremiosRowChangeEventHandler" msprop:Generator_RowDeletedName="DetallePremiosRowDeleted" msprop:Generator_UserTableName="DetallePremios" msprop:Generator_RowChangedName="DetallePremiosRowChanged" msprop:Generator_RowEvArgName="DetallePremiosRowChangeEvent" msprop:Generator_RowClassName="DetallePremiosRow" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <msdata:Relationship name="Encabezado_DetallePremios" msdata:parent="Encabezado" msdata:child="DetallePremios" msdata:parentkey="NumeroJuego" msdata:childkey="NumeroJuego" msprop:Generator_UserChildTable="DetallePremios" msprop:Generator_ChildPropName="GetDetallePremiosRows" msprop:Generator_UserRelationName="Encabezado_DetallePremios" msprop:Generator_ParentPropName="EncabezadoRow" msprop:Generator_RelationVarName="relationEncabezado_DetallePremios" msprop:Generator_UserParentTable="Encabezado" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NombreFigura" msprop:Generator_ColumnVarNameInTable="columnNombreFigura" msprop:Generator_ColumnPropNameInRow="NombreFigura" msprop:Generator_ColumnPropNameInTable="NombreFiguraColumn" msprop:Generator_UserColumnName="NombreFigura" type="xs:string" minOccurs="0" />
+                    <xs:element name="ValorFigura" msprop:Generator_ColumnVarNameInTable="columnValorFigura" msprop:Generator_ColumnPropNameInRow="ValorFigura" msprop:Generator_ColumnPropNameInTable="ValorFiguraColumn" msprop:Generator_UserColumnName="ValorFigura" type="xs:string" minOccurs="0" />
+                    <xs:element name="NumeroJuego" msprop:Generator_ColumnVarNameInTable="columnNumeroJuego" msprop:Generator_ColumnPropNameInRow="NumeroJuego" msprop:Generator_ColumnPropNameInTable="NumeroJuegoColumn" msprop:Generator_UserColumnName="NumeroJuego" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DetalleRecaudo" msprop:Generator_TableClassName="DetalleRecaudoDataTable" msprop:Generator_TableVarName="tableDetalleRecaudo" msprop:Generator_TablePropName="DetalleRecaudo" msprop:Generator_RowDeletingName="DetalleRecaudoRowDeleting" msprop:Generator_RowChangingName="DetalleRecaudoRowChanging" msprop:Generator_RowEvHandlerName="DetalleRecaudoRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleRecaudoRowDeleted" msprop:Generator_UserTableName="DetalleRecaudo" msprop:Generator_RowChangedName="DetalleRecaudoRowChanged" msprop:Generator_RowEvArgName="DetalleRecaudoRowChangeEvent" msprop:Generator_RowClassName="DetalleRecaudoRow" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <msdata:Relationship name="Encabezado_DetalleRecaudo" msdata:parent="Encabezado" msdata:child="DetalleRecaudo" msdata:parentkey="NumeroJuego" msdata:childkey="NumeroJuego" msprop:Generator_UserChildTable="DetalleRecaudo" msprop:Generator_ChildPropName="GetDetalleRecaudoRows" msprop:Generator_UserRelationName="Encabezado_DetalleRecaudo" msprop:Generator_ParentPropName="EncabezadoRow" msprop:Generator_RelationVarName="relationEncabezado_DetalleRecaudo" msprop:Generator_UserParentTable="Encabezado" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NombreUsuario" msprop:Generator_ColumnVarNameInTable="columnNombreUsuario" msprop:Generator_ColumnPropNameInRow="NombreUsuario" msprop:Generator_ColumnPropNameInTable="NombreUsuarioColumn" msprop:Generator_UserColumnName="NombreUsuario" type="xs:string" minOccurs="0" />
+                    <xs:element name="Ingresos" msprop:Generator_ColumnVarNameInTable="columnIngresos" msprop:Generator_ColumnPropNameInRow="Ingresos" msprop:Generator_ColumnPropNameInTable="IngresosColumn" msprop:Generator_UserColumnName="Ingresos" type="xs:string" minOccurs="0" />
+                    <xs:element name="Gastos" msprop:Generator_ColumnVarNameInTable="columnGastos" msprop:Generator_ColumnPropNameInRow="Gastos" msprop:Generator_ColumnPropNameInTable="GastosColumn" msprop:Generator_UserColumnName="Gastos" type="xs:string" minOccurs="0" />
+                    <xs:element name="RecaudoTotal" msprop:Generator_ColumnVarNameInTable="columnRecaudoTotal" msprop:Generator_ColumnPropNameInRow="RecaudoTotal" msprop:Generator_ColumnPropNameInTable="RecaudoTotalColumn" msprop:Generator_UserColumnName="RecaudoTotal" type="xs:string" minOccurs="0" />
+                    <xs:element name="ValorRecaudoTotal" msprop:Generator_ColumnVarNameInTable="columnValorRecaudoTotal" msprop:Generator_ColumnPropNameInRow="ValorRecaudoTotal" msprop:Generator_ColumnPropNameInTable="ValorRecaudoTotalColumn" msprop:Generator_UserColumnName="ValorRecaudoTotal" type="xs:string" minOccurs="0" />
+                    <xs:element name="Diferencia" msprop:Generator_ColumnVarNameInTable="columnDiferencia" msprop:Generator_ColumnPropNameInRow="Diferencia" msprop:Generator_ColumnPropNameInTable="DiferenciaColumn" msprop:Generator_UserColumnName="Diferencia" type="xs:string" minOccurs="0" />
+                    <xs:element name="NumeroJuego" msprop:Generator_ColumnVarNameInTable="columnNumeroJuego" msprop:Generator_ColumnPropNameInRow="NumeroJuego" msprop:Generator_ColumnPropNameInTable="NumeroJuegoColumn" msprop:Generator_UserColumnName="NumeroJuego" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetalleVendedores" msprop:Generator_TableClassName="DetalleVendedoresDataTable" msprop:Generator_TableVarName="tableDetalleVendedores" msprop:Generator_TablePropName="DetalleVendedores" msprop:Generator_RowDeletingName="DetalleVendedoresRowDeleting" msprop:Generator_RowChangingName="DetalleVendedoresRowChanging" msprop:Generator_RowEvHandlerName="DetalleVendedoresRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleVendedoresRowDeleted" msprop:Generator_UserTableName="DetalleVendedores" msprop:Generator_RowChangedName="DetalleVendedoresRowChanged" msprop:Generator_RowEvArgName="DetalleVendedoresRowChangeEvent" msprop:Generator_RowClassName="DetalleVendedoresRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NombreVendedor" msprop:Generator_ColumnVarNameInTable="columnNombreVendedor" msprop:Generator_ColumnPropNameInRow="NombreVendedor" msprop:Generator_ColumnPropNameInTable="NombreVendedorColumn" msprop:Generator_UserColumnName="NombreVendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Cartones" msprop:Generator_ColumnVarNameInTable="columnCartones" msprop:Generator_ColumnPropNameInRow="Cartones" msprop:Generator_ColumnPropNameInTable="CartonesColumn" msprop:Generator_UserColumnName="Cartones" type="xs:string" minOccurs="0" />
+              <xs:element name="Modulos" msprop:Generator_ColumnVarNameInTable="columnModulos" msprop:Generator_ColumnPropNameInRow="Modulos" msprop:Generator_ColumnPropNameInTable="ModulosColumn" msprop:Generator_UserColumnName="Modulos" type="xs:string" minOccurs="0" />
+              <xs:element name="CartonesCortesia" msprop:Generator_ColumnVarNameInTable="columnCartonesCortesia" msprop:Generator_ColumnPropNameInRow="CartonesCortesia" msprop:Generator_ColumnPropNameInTable="CartonesCortesiaColumn" msprop:Generator_UserColumnName="CartonesCortesia" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalVentas" msprop:Generator_ColumnVarNameInTable="columnTotalVentas" msprop:Generator_ColumnPropNameInRow="TotalVentas" msprop:Generator_ColumnPropNameInTable="TotalVentasColumn" msprop:Generator_UserColumnName="TotalVentas" type="xs:string" minOccurs="0" />
+              <xs:element name="CartonesDevueltos" msprop:Generator_ColumnVarNameInTable="columnCartonesDevueltos" msprop:Generator_ColumnPropNameInRow="CartonesDevueltos" msprop:Generator_ColumnPropNameInTable="CartonesDevueltosColumn" msprop:Generator_UserColumnName="CartonesDevueltos" type="xs:string" minOccurs="0" />
+              <xs:element name="PorcentajeComision" msprop:Generator_ColumnVarNameInTable="columnPorcentajeComision" msprop:Generator_ColumnPropNameInRow="PorcentajeComision" msprop:Generator_ColumnPropNameInTable="PorcentajeComisionColumn" msprop:Generator_UserColumnName="PorcentajeComision" type="xs:string" minOccurs="0" />
+              <xs:element name="GastosCortesia" msprop:Generator_ColumnVarNameInTable="columnGastosCortesia" msprop:Generator_ColumnPropNameInRow="GastosCortesia" msprop:Generator_ColumnPropNameInTable="GastosCortesiaColumn" msprop:Generator_UserColumnName="GastosCortesia" type="xs:string" minOccurs="0" />
+              <xs:element name="ValorComision" msprop:Generator_ColumnVarNameInTable="columnValorComision" msprop:Generator_ColumnPropNameInRow="ValorComision" msprop:Generator_ColumnPropNameInTable="ValorComisionColumn" msprop:Generator_UserColumnName="ValorComision" type="xs:string" minOccurs="0" />
+              <xs:element name="Recibido" msprop:Generator_ColumnVarNameInTable="columnRecibido" msprop:Generator_ColumnPropNameInRow="Recibido" msprop:Generator_ColumnPropNameInTable="RecibidoColumn" msprop:Generator_UserColumnName="Recibido" type="xs:string" minOccurs="0" />
+              <xs:element name="NumeroJuego" msprop:Generator_ColumnVarNameInTable="columnNumeroJuego" msprop:Generator_ColumnPropNameInRow="NumeroJuego" msprop:Generator_ColumnPropNameInTable="NumeroJuegoColumn" msprop:Generator_UserColumnName="NumeroJuego" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="NumeroJuegoPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Encabezado" />
+      <xs:field xpath="mstns:NumeroJuego" />
+    </xs:unique>
+    <xs:keyref name="FK_Encabezado_DetalleVendedores" refer="NumeroJuegoPK" msprop:rel_Generator_UserChildTable="DetalleVendedores" msprop:rel_Generator_ChildPropName="GetDetalleVendedoresRows" msprop:rel_Generator_UserRelationName="FK_Encabezado_DetalleVendedores" msprop:rel_Generator_ParentPropName="EncabezadoRow" msprop:rel_Generator_RelationVarName="relationFK_Encabezado_DetalleVendedores" msprop:rel_Generator_UserParentTable="Encabezado">
+      <xs:selector xpath=".//mstns:DetalleVendedores" />
+      <xs:field xpath="mstns:NumeroJuego" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

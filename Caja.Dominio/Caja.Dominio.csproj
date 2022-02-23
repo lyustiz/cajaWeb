@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAEFC8A1-2B36-4126-BF90-5D273A28826B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Caja.Dominio</RootNamespace>
+    <AssemblyName>Caja.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DominioAuditoria.cs" />
+    <Compile Include="DominioBase.cs" />
+    <Compile Include="DominioCiudad.cs" />
+    <Compile Include="DominioCliente.cs" />
+    <Compile Include="DominioConceptoGasto.cs" />
+    <Compile Include="DominioFlujoCaja.cs" />
+    <Compile Include="DominioGastoGeneral.cs" />
+    <Compile Include="DominioGastoProgramacionJuego.cs" />
+    <Compile Include="DominioHojasDevueltas.cs" />
+    <Compile Include="DominioIngresoGeneral.cs" />
+    <Compile Include="DominioIngresoProgramacionJuego.cs" />
+    <Compile Include="DominioModulo.cs" />
+    <Compile Include="DominioNominaDescuento.cs" />
+    <Compile Include="DominioPais.cs" />
+    <Compile Include="DominioParamentroGeneral.cs" />
+    <Compile Include="DominioPerfilPermiso.cs" />
+    <Compile Include="DominioPorcentajePremio.cs" />
+    <Compile Include="DominioProgramacionDevolucionCodigoBarra.cs" />
+    <Compile Include="DominioProgramacionJuego.cs" />
+    <Compile Include="DominioProgramacionJuegoDinero.cs" />
+    <Compile Include="DominioRecaudoDetalle.cs" />
+    <Compile Include="DominioRecaudoFaltante.cs" />
+    <Compile Include="DominioRecaudoTotal.cs" />
+    <Compile Include="DominioRoe.cs" />
+    <Compile Include="DominioUsuario.cs" />
+    <Compile Include="DominioVendedor.cs" />
+    <Compile Include="DominioVendedorCobroCarton.cs" />
+    <Compile Include="DominioVendedorCuentaCobrar.cs" />
+    <Compile Include="DominioVendedorHojas.cs" />
+    <Compile Include="DominioVendedorModulo.cs" />
+    <Compile Include="DominioVendedorPagoAnticipado.cs" />
+    <Compile Include="DominioVendedorReferencia.cs" />
+    <Compile Include="DominioVendedorResumen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caja.Datos\Caja.Datos.csproj">
+      <Project>{6DF09DE9-0AD5-45D3-96BC-0FA9FC097BF8}</Project>
+      <Name>Caja.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caja.Entidades\Caja.Entidades.csproj">
+      <Project>{B8609059-3756-4731-B056-E59562089472}</Project>
+      <Name>Caja.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

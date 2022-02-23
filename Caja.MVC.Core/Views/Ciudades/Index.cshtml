@@ -1,0 +1,63 @@
+﻿@model List<Caja.MVC.Core.Models.CiudadModel>
+
+@{
+    ViewData["Title"] = "Ciudades";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">General</a></li>
+    <li class="breadcrumb-item active">Ciudades</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "Ciudades")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- default table -->
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pais</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var ciudad in Model)
+                    {
+                <tr>
+                    <th scope="row">@ciudad.IdCiudad</th>
+                    <td>@ciudad.NombrePais</td>
+                    <td>@ciudad.Nombre</td>
+                    <td>@Html.ActionLink("Editar", "Edit", "Ciudades", new { id = ciudad.IdCiudad })</td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

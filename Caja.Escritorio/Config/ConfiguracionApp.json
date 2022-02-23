@@ -1,0 +1,21 @@
+﻿[
+  {
+    "Key": "CodigoEmpresa",
+    "Value": "1"
+  },
+  {
+    "Key": "DataBase",
+    "Value": "Af9jOljKCkxgZqLfKY6VE5JhwiGuIvzQwIsHOXyju8aF/5BGr6PusaMDwjVxQDLyncds/4EL84z3HATNy2a9YSkVupJXkN2gne778T21VM8="
+  },
+  {
+    "Key": "ApiLicencia",
+    "Value": "http://juegosjl-001-site3.ftempurl.com/"
+  },
+  {
+    "Key": "DataDirMysql",
+    "Value": "C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\juegobingo"
+  }
+]
+
+//Bingo: Af9jOljKCkxgZqLfKY6VE5JhwiGuIvzQwIsHOXyju8aF/5BGr6PusaMDwjVxQDLyncds/4EL84z3HATNy2a9YSkVupJXkN2gne778T21VM8=
+//Rombo: Af9jOljKCkxgZqLfKY6VE06WmfpxI7+o4iXeTBhvsRDGH9Cy1zVYDbz6yBM7uL1Qm0VwgjmDllUzgjKnGfl5OEiEdFr+jzDzpZWosnJQpNk=

@@ -1,0 +1,73 @@
+﻿@model List<Caja.MVC.Core.Models.ClienteModel>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Clientes</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "Cliente")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- default table -->
+        @using (Html.BeginForm("Index", "Cliente", FormMethod.Get))
+        {
+            <p>
+                Filtro: @Html.TextBox("SearchString")
+                <input type="submit" value="Buscar" />
+            </p>
+        }
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>                    
+                    <th scope="col">Nombres Completo</th>                    
+                    <th scope="col">Celular</th>
+                    <th scope="col">Barrio</th>                    
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var registro in Model)
+                    {
+                        <tr>                            
+                            <td scope="row">@registro.Nombres</td>
+                            <td>@registro.Celular</td>
+                            <td>@registro.Barrio</td>                           
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", "Cliente", new { id = registro.Id })                               
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

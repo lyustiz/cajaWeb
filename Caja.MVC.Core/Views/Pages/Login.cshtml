@@ -1,0 +1,49 @@
+﻿
+@model Caja.MVC.Core.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    ViewData["AppClass"] = "app-full-height app-without-header app-full-width";
+    ViewData["AppWithoutHeader"] = true;
+    ViewData["AppWithoutSidebar"] = true;
+    ViewData["AppWithoutContainer"] = true;
+}
+
+<!-- BEGIN login -->
+<div class="login">
+    <!-- BEGIN login-content -->
+    <div class="login-content">
+
+        @using (Html.BeginForm("Login", "Pages", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="col-md-12 text-center">
+                <h3>Bienvenido</h3>
+                <p>Sistema Centralizado Administración Caja</p>
+            </div>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <h6 class="alert-heading">Error!</h6>
+                    <span>@ViewBag.ErrorMessage</span>
+                </div>
+            }
+
+            <h2 class="text-center">Autenticación de Usuarios</h2>
+            <div class="mb-3">
+                @Html.TextBoxFor(e => e.Usuario, new { @class = "form-control", placeholder = "Usuario *" })
+                @Html.ValidationMessageFor(e => e.Usuario)
+            </div>
+            <div class="mb-3">
+                @Html.PasswordFor(e => e.Contrasena, new { id = "password", @class = "form-control", placeholder = "Contraseña *" })
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg d-block w-100 fw-500 mb-3">Iniciar Sesión</button>
+        }
+
+    </div>
+    <!-- END login-content -->
+</div>
+<!-- END login -->

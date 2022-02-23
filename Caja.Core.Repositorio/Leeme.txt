@@ -1,0 +1,9 @@
+﻿-- Comando para crear contexto y entidades en los repositorios
+.
+1. Modificar el -OutputDir que es el directorio donde van a quedar las entidades.
+2. Modificar el -Namespace que es el espacio de nombres para las entidades
+3. Especificar -Tables las tablas a incluir separadas por coma, si no se expecifican se mapean todas las tablas de la base de datos.
+4. Modificar el -ContextNamespace que es el espacio de nombres para el contexto
+5. Nombrar el -Context segun el nombre de la base de datos a usar
+
+Scaffold-DbContext "Server=localhost;Database=juegobingo;Uid=root;Pwd=root" MySql.EntityFrameworkCore -OutputDir ../Caja.Core.Entidades -Namespace Caja.Core.Entidades -ContextDir DbContext -Context CajaContext -ContextNamespace Caja.Core.Repositorio -NoOnConfiguring -NoPluralize -Force

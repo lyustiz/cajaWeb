@@ -1,0 +1,78 @@
+﻿@model List<Caja.MVC.Core.Models.ReferenciaModel>
+
+@{
+    ViewData["Title"] = "Referencias Vendedores";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Vendedores</li>
+    <li class="breadcrumb-item active">Referencias</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    
+    <div class="card-header">
+        <h4>Vendedor: @ViewBag.NombreVendedor</h4>   
+        <a href="@Url.Action("Create", "Referencias", new { idVendedor = @ViewBag.IdVendedor })" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+
+        <a href="@Url.Action("Index", "Vendedores")" class="btn btn-secondary card-link">
+            <i class="fa fa-backward"></i>
+            Volver
+        </a>
+    </div>
+    <div class="card-body">
+       
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Teléfono</th>                    
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var registro in Model)
+                    {
+                        <tr>
+                            <th scope="row">@registro.Documento</th>
+                            <td>@registro.Nombres</td>
+                            <td>@registro.Apellidos</td>
+                            <td>@registro.Direccion</td>
+                            <td>@registro.Celular</td>
+                            <td>@registro.Telefono</td>                            
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", "Referencias", new { id = registro.Id })                                                               
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,378 @@
+﻿@model Caja.MVC.Core.Models.ProgramacionJuegoModel
+
+@{
+    ViewData["Title"] = "Programación Juegos";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Juegos</a></li>
+    <li class="breadcrumb-item"><a href="#">Procesos</a></li>
+    <li class="breadcrumb-item active">Programar Juego</li>
+</ul>
+
+<hr class="mb-4">
+
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success">
+        <strong>Correcto!</strong> @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong> @ViewBag.ErrorMessage
+    </div>
+}
+
+<div class="card">
+
+    <div id="btnImprimir" class="card-header">
+        <button class="btn btn-tertiary" title="Nuevo Juego" onclick="nuevo();" id="btnNuevo">
+            <i class="fa fa-file"></i>
+            Nuevo
+        </button>
+        <button class="btn btn-tertiary" title="Guardar Juego" onclick="guardarJuego();" disabled id="btnGuardar">
+            <i class="fa fa-save"></i>
+            Guardar
+        </button>
+    </div>
+
+    <div class="card-header">
+        <h5 class="card-title">Programar Juego</h5>
+    </div>
+    <div class="card-body">
+
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <legend class="legend-size-medium">Datos del Juego</legend>
+
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="NumeroJuego" class="control-label"></label>
+                    <select asp-for="NumeroJuego" asp-items="Model.ListaProgramaciones" class="form-control" style="color: rgb(0 0 255); font-weight: 700;"
+                            onchange="cargarProgramacion()">
+                    </select>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="FechaJuego" class="control-label"></label>
+                    <input disabled type="date" asp-for="FechaJuego" class="form-control" />
+                    <span asp-validation-for="FechaJuego" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="ValorCarton" class="control-label"></label>
+                    <input disabled type="number" asp-for="ValorCarton" class="form-control campo-numerico" />
+                    <span asp-validation-for="ValorCarton" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="ValorModulo" class="control-label"></label>
+                    <input disabled type="number" asp-for="ValorModulo" class="form-control campo-numerico" />
+                    <span asp-validation-for="ValorModulo" class="text-danger"></span>
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend class="legend-size-medium">Configuración de Serie</legend>
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="IdSerie" class="control-label"></label>
+                    <select disabled asp-for="IdSerie" asp-items="Model.ListaSeries" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="CartonInicial" class="control-label"></label>
+                    <input disabled type="number" asp-for="CartonInicial" class="form-control campo-numerico" />
+                    <span asp-validation-for="CartonInicial" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="CartonFinal" class="control-label"></label>
+                    <input disabled type="number" asp-for="CartonFinal" class="form-control campo-numerico" />
+                    <span asp-validation-for="CartonFinal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="HojaInicial" class="control-label"></label>
+                    <input disabled type="number" asp-for="HojaInicial" class="form-control campo-numerico" />
+                    <span asp-validation-for="HojaInicial" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label asp-for="HojaFinal" class="control-label"></label>
+                    <input disabled type="number" asp-for="HojaFinal" class="form-control campo-numerico" />
+                    <span asp-validation-for="HojaFinal" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend class="legend-size-medium">Configuración de figuras</legend>
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label class="control-label">Figura</label>
+                    <select disabled id="selectFigura" asp-items="Model.ListaFiguras" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group col-xs-6 col-sm-2">
+                    <label class="control-label">Valor Figura</label>
+                    <input disabled type="number" id="valorFigura" class="form-control campo-numerico" />
+                </div>
+
+                <div class="form-group col-xs-2 col-sm-2">
+                    <label class="control-label"></label>
+                    <button disabled class="form-control btn btn-success float-right" id="btnAgregarFigura" title="Agregar Figura" onclick="cargarTablaFiguras();">
+                        <i class="fa fa-plus"></i>
+                        Agregar Figura
+                    </button>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend class="legend-size-medium">Listado de Figuras</legend>
+            <div class="row">
+                <table id="tablaFiguras" class="display" width="100%"></table>
+                <input id="lblTotalPremios" class="form-control" disabled style="font-size: 25px; font-weight: bold; text-align: end;" />
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        inicializarControles();
+
+        @if (ViewBag.EsNuevo == true)
+        {
+            <text>configurarNuevo();</text>
+        }
+
+        function inicializarControles() {
+
+            var comboFigura = document.getElementById("selectFigura");
+            comboFigura.selectedIndex = -1;
+
+            var tabla = $('#tablaFiguras').DataTable({
+                select: true,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json'
+                },
+                data: [],
+                columns: [
+                    { title: "Id" },
+                    { title: "Figura" },
+                    { title: "Premio" },
+                    { "defaultContent": "<button class='btn btn-sm btn-danger' title='Eliminar Figura'><i class='fa fa-trash'></i></button>" }
+                ]
+            });
+
+            @if (@Model != null && @Model.Figuras.NotIsNullOrZeroItems())
+            {
+                foreach (var figura in @Model.Figuras)
+                {
+                    <text>
+                        tabla.row.add([
+                            @figura.Id,
+                            '@figura.Nombre',
+                            @figura.ValorPremio
+                        ]).draw(false);
+                    </text>
+                }
+            }
+
+            calcularTotalPremios();
+
+            @if (ViewBag.EsNuevo == true)
+            {
+                <text>
+                $('#tablaFiguras').on("click", "button", function () {
+                    Swal
+                        .fire({
+                            title: "Confirmación",
+                            text: "¿Esta seguro de eliminar la figura de la lista?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: "Sí, eliminar",
+                            cancelButtonText: "Cancelar",
+                        })
+                        .then(resultado => {
+                            if (resultado.value) {
+                                // Hicieron click en "Sí"
+                                tabla.row($(this).parents('tr')).remove().draw(false);
+                                document.getElementById("valorFigura").value = '';
+                                comboFigura.selectedIndex = -1;
+                                comboFigura.focus();
+                                calcularTotalPremios();
+                            } else {
+                                // Dijeron que no
+                            }
+                        });
+                });
+            </text>
+            }
+        }
+    });
+
+    function cargarProgramacion() {
+        location.href = '/ProgramacionJuego/Index?Id=' + document.getElementById('NumeroJuego').value;
+    }
+
+    function cargarTablaFiguras() {
+
+        var continuar = true;
+        var combo = document.getElementById("selectFigura");
+        var nombreFigura = combo.options[combo.selectedIndex].text;
+        var valorFigura = document.getElementById("valorFigura").value;
+        var tabla = $('#tablaFiguras').DataTable();
+
+        var datos = tabla.rows().data();
+
+        if (datos.length) {
+            for (var i = 0; datos.length > i; i++) {
+                if (datos[i][0] == combo.value) {
+                    toastr.warning('La figura ' + nombreFigura + ' ya existe en la tabla.', 'Mensaje Caja', { timeOut: 5000, positionClass: "toast-top-center", progressBar: true });
+                    continuar = false;
+                    break;
+                };
+            }
+        }
+
+        if (continuar) {
+            tabla.row.add([
+                combo.value,
+                nombreFigura,
+                valorFigura
+            ]).draw(false);
+
+            document.getElementById("valorFigura").value = '';
+            combo.selectedIndex = -1;
+            combo.focus();
+        }
+
+        calcularTotalPremios();
+    }
+
+    function nuevo() {
+        location.href = '/ProgramacionJuego/Nuevo';
+    }
+
+    function configurarNuevo() {
+        var tabla = $('#tablaFiguras').DataTable();
+        tabla.clear().draw();
+
+        var comboSerie = document.getElementById("IdSerie");
+
+        document.getElementById("btnNuevo").disabled = true;
+        document.getElementById("btnGuardar").disabled = false;
+
+        document.getElementById("NumeroJuego").disabled = true;
+        document.getElementById("FechaJuego").disabled = false;
+        document.getElementById("ValorCarton").disabled = false;
+        document.getElementById("ValorModulo").disabled = false;
+
+        document.getElementById("IdSerie").disabled = false;
+        comboSerie.selectedIndex = -1;
+        document.getElementById("CartonInicial").disabled = false;
+        document.getElementById("CartonFinal").disabled = false;
+        document.getElementById("HojaInicial").disabled = false;
+        document.getElementById("HojaFinal").disabled = false;
+
+        document.getElementById("selectFigura").disabled = false;
+        document.getElementById("valorFigura").disabled = false;
+        document.getElementById("btnAgregarFigura").disabled = false;
+    }
+
+    function calcularTotalPremios() {
+
+        var total = 0;
+        var tabla = $('#tablaFiguras').DataTable();
+        var datos = tabla.rows().data();
+
+        if (datos.length) {
+            for (var i = 0; datos.length > i; i++) {
+                total += +datos[i][2];
+            }
+        }
+
+        document.getElementById('lblTotalPremios').value = 'Total Premios: ' + total;
+    }
+
+    function guardarJuego() {
+        Swal
+            .fire({
+                title: "Confirmación",
+                text: "¿Esta seguro de guardar la nueva programación?",
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: "Sí, guardar",
+                cancelButtonText: "Cancelar",
+            })
+            .then(resultado => {
+                if (resultado.value) {
+                    var jsonObject = {
+                        'NumeroJuego': +document.getElementById("NumeroJuego").value,
+                        'FechaJuego': document.getElementById("FechaJuego").value,
+                        'ValorCarton': document.getElementById("ValorCarton").value,
+                        'ValorModulo': document.getElementById("ValorModulo").value,
+                        'IdSerie': +document.getElementById("IdSerie").value,
+                        'CartonInicial': +document.getElementById("CartonInicial").value,
+                        'CartonFinal': +document.getElementById("CartonFinal").value,
+                        'HojaInicial': +document.getElementById("HojaInicial").value,
+                        'HojaFinal': +document.getElementById("HojaFinal").value,
+                        'Figuras': []
+                    };
+
+                    var tabla = $('#tablaFiguras').DataTable();
+                    var datos = tabla.rows().data();
+
+                    if (datos.length) {
+                        for (var i = 0; datos.length > i; i++) {
+                            jsonObject.Figuras.push({ 'Id': datos[i][0], 'Nombre': datos[i][1], 'ValorPremio': datos[i][2] });
+                        }
+                    }
+
+                    $.ajax({
+                        url: "@Url.Action("Save")",
+                        type: "POST",
+                        data: JSON.stringify(jsonObject),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        error: function (respuesta) { 
+                            console.log(respuesta);
+                            Swal.fire(respuesta);
+                        },
+                        success: function (respuesta) {
+                            if (respuesta.ok) {
+                                Swal.fire(respuesta.mensaje)
+                                    .then(() => {
+                                        location.href = '/ProgramacionJuego/Index';                                        
+                                    });
+                            }
+                            else {
+                                Swal.fire(respuesta.mensaje);
+                            }
+                        }
+                    });
+                } 
+            });
+    }
+
+</script>
+
+
+
+
+

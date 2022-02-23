@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DtsPlanilla" targetNamespace="http://tempuri.org/DtsPlanilla.xsd" xmlns:mstns="http://tempuri.org/DtsPlanilla.xsd" xmlns="http://tempuri.org/DtsPlanilla.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DtsPlanilla" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DtsPlanilla" msprop:Generator_UserDSName="DtsPlanilla">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DetallePlanilla" msprop:Generator_TableClassName="DetallePlanillaDataTable" msprop:Generator_TableVarName="tableDetallePlanilla" msprop:Generator_RowChangedName="DetallePlanillaRowChanged" msprop:Generator_TablePropName="DetallePlanilla" msprop:Generator_RowDeletingName="DetallePlanillaRowDeleting" msprop:Generator_RowChangingName="DetallePlanillaRowChanging" msprop:Generator_RowEvHandlerName="DetallePlanillaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetallePlanillaRowDeleted" msprop:Generator_RowClassName="DetallePlanillaRow" msprop:Generator_UserTableName="DetallePlanilla" msprop:Generator_RowEvArgName="DetallePlanillaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CodigoVendedor" msprop:Generator_ColumnVarNameInTable="columnCodigoVendedor" msprop:Generator_ColumnPropNameInRow="CodigoVendedor" msprop:Generator_ColumnPropNameInTable="CodigoVendedorColumn" msprop:Generator_UserColumnName="CodigoVendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreVendedor" msprop:Generator_ColumnVarNameInTable="columnNombreVendedor" msprop:Generator_ColumnPropNameInRow="NombreVendedor" msprop:Generator_ColumnPropNameInTable="NombreVendedorColumn" msprop:Generator_UserColumnName="NombreVendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:int" />
+              <xs:element name="Hoja1" msprop:Generator_ColumnVarNameInTable="columnHoja1" msprop:Generator_ColumnPropNameInRow="Hoja1" msprop:Generator_ColumnPropNameInTable="Hoja1Column" msprop:Generator_UserColumnName="Hoja1" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja2" msprop:Generator_ColumnVarNameInTable="columnHoja2" msprop:Generator_ColumnPropNameInRow="Hoja2" msprop:Generator_ColumnPropNameInTable="Hoja2Column" msprop:Generator_UserColumnName="Hoja2" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja3" msprop:Generator_ColumnVarNameInTable="columnHoja3" msprop:Generator_ColumnPropNameInRow="Hoja3" msprop:Generator_ColumnPropNameInTable="Hoja3Column" msprop:Generator_UserColumnName="Hoja3" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja4" msprop:Generator_ColumnVarNameInTable="columnHoja4" msprop:Generator_ColumnPropNameInRow="Hoja4" msprop:Generator_ColumnPropNameInTable="Hoja4Column" msprop:Generator_UserColumnName="Hoja4" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja5" msprop:Generator_ColumnVarNameInTable="columnHoja5" msprop:Generator_ColumnPropNameInRow="Hoja5" msprop:Generator_ColumnPropNameInTable="Hoja5Column" msprop:Generator_UserColumnName="Hoja5" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja6" msprop:Generator_ColumnVarNameInTable="columnHoja6" msprop:Generator_ColumnPropNameInRow="Hoja6" msprop:Generator_ColumnPropNameInTable="Hoja6Column" msprop:Generator_UserColumnName="Hoja6" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja7" msprop:Generator_ColumnVarNameInTable="columnHoja7" msprop:Generator_ColumnPropNameInRow="Hoja7" msprop:Generator_ColumnPropNameInTable="Hoja7Column" msprop:Generator_UserColumnName="Hoja7" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja8" msprop:Generator_ColumnVarNameInTable="columnHoja8" msprop:Generator_ColumnPropNameInRow="Hoja8" msprop:Generator_ColumnPropNameInTable="Hoja8Column" msprop:Generator_UserColumnName="Hoja8" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja9" msprop:Generator_ColumnVarNameInTable="columnHoja9" msprop:Generator_ColumnPropNameInRow="Hoja9" msprop:Generator_ColumnPropNameInTable="Hoja9Column" msprop:Generator_UserColumnName="Hoja9" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja10" msprop:Generator_ColumnVarNameInTable="columnHoja10" msprop:Generator_ColumnPropNameInRow="Hoja10" msprop:Generator_ColumnPropNameInTable="Hoja10Column" msprop:Generator_UserColumnName="Hoja10" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja11" msprop:Generator_ColumnVarNameInTable="columnHoja11" msprop:Generator_ColumnPropNameInRow="Hoja11" msprop:Generator_ColumnPropNameInTable="Hoja11Column" msprop:Generator_UserColumnName="Hoja11" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja12" msprop:Generator_ColumnVarNameInTable="columnHoja12" msprop:Generator_ColumnPropNameInRow="Hoja12" msprop:Generator_ColumnPropNameInTable="Hoja12Column" msprop:Generator_UserColumnName="Hoja12" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja13" msprop:Generator_ColumnVarNameInTable="columnHoja13" msprop:Generator_ColumnPropNameInRow="Hoja13" msprop:Generator_ColumnPropNameInTable="Hoja13Column" msprop:Generator_UserColumnName="Hoja13" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja14" msprop:Generator_ColumnVarNameInTable="columnHoja14" msprop:Generator_ColumnPropNameInRow="Hoja14" msprop:Generator_ColumnPropNameInTable="Hoja14Column" msprop:Generator_UserColumnName="Hoja14" type="xs:int" minOccurs="0" />
+              <xs:element name="Hoja15" msprop:Generator_ColumnVarNameInTable="columnHoja15" msprop:Generator_ColumnPropNameInRow="Hoja15" msprop:Generator_ColumnPropNameInTable="Hoja15Column" msprop:Generator_UserColumnName="Hoja15" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,767 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CED53E9-B5CE-4C19-BE71-9ABF489DED4E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Caja.Escritorio</RootNamespace>
+    <AssemblyName>Caja.Escritorio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9A7EBAA273843FD201DE426908BE6618F2AC8F1A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Caja.Escritorio_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.AxShockwaveFlashObjects.13.0.4001\lib\net40\AxShockwaveFlashObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.ReportSource.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.Shared.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ShockwaveFlashObjects.13.0.4001\lib\net40\ShockwaveFlashObjects.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\Proxy\CajaServices.cs" />
+    <Compile Include="App\SesionActiva.cs" />
+    <Compile Include="App\SplashScreen.cs" />
+    <Compile Include="Formularios\Administracion\FrmConsultarAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmConsultarAuditoria.Designer.cs">
+      <DependentUpon>FrmConsultarAuditoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmDetalleAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmDetalleAuditoria.Designer.cs">
+      <DependentUpon>FrmDetalleAuditoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmCiudades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmCiudades.Designer.cs">
+      <DependentUpon>FrmCiudades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmConfiguracionPorcentajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmConfiguracionPorcentajes.Designer.cs">
+      <DependentUpon>FrmConfiguracionPorcentajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmGuardarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmGuardarUsuario.Designer.cs">
+      <DependentUpon>FrmGuardarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmLimiteGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmLimiteGastos.Designer.cs">
+      <DependentUpon>FrmLimiteGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmMonedas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmMonedas.Designer.cs">
+      <DependentUpon>FrmMonedas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmPaises.Designer.cs">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmPermisos.Designer.cs">
+      <DependentUpon>FrmPermisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmSocios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmSocios.Designer.cs">
+      <DependentUpon>FrmSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmVendedores.Designer.cs">
+      <DependentUpon>FrmVendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmVendedorReferencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\FrmVendedorReferencias.Designer.cs">
+      <DependentUpon>FrmVendedorReferencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmDefinicionModulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmDefinicionModulos.Designer.cs">
+      <DependentUpon>FrmDefinicionModulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmRelacionModulosClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Modulos\FrmRelacionModulosClientes.Designer.cs">
+      <DependentUpon>FrmRelacionModulosClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmCuadreCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmCuadreCierre.Designer.cs">
+      <DependentUpon>FrmCuadreCierre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmDineroBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmDineroBancos.Designer.cs">
+      <DependentUpon>FrmDineroBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmGastosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmGastosGenerales.Designer.cs">
+      <DependentUpon>FrmGastosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmGastosJuego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmGastosJuego.Designer.cs">
+      <DependentUpon>FrmGastosJuego.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmIngresosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmIngresosGenerales.Designer.cs">
+      <DependentUpon>FrmIngresosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmIngresosJuego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmIngresosJuego.Designer.cs">
+      <DependentUpon>FrmIngresosJuego.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmPlanillaJuego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmPlanillaJuego.Designer.cs">
+      <DependentUpon>FrmPlanillaJuego.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmReporteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Caja\FrmReporteUsuario.Designer.cs">
+      <DependentUpon>FrmReporteUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\General\MsgClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\General\MsgClave.Designer.cs">
+      <DependentUpon>MsgClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\General\MsgConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\General\MsgConfirm.Designer.cs">
+      <DependentUpon>MsgConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\General\MsgExcepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\General\MsgExcepcion.Designer.cs">
+      <DependentUpon>MsgExcepcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmAgregarModulosProgramacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmAgregarModulosProgramacion.Designer.cs">
+      <DependentUpon>FrmAgregarModulosProgramacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmCobroCartones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmCobroCartones.Designer.cs">
+      <DependentUpon>FrmCobroCartones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmDevolucionCartones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmDevolucionCartones.Designer.cs">
+      <DependentUpon>FrmDevolucionCartones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmDevolucionCodigoBarras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmDevolucionCodigoBarras.Designer.cs">
+      <DependentUpon>FrmDevolucionCodigoBarras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmEntregaCartoneria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmEntregaCartoneria.Designer.cs">
+      <DependentUpon>FrmEntregaCartoneria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmEntregaCartoneriaCodigoBarras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmEntregaCartoneriaCodigoBarras.Designer.cs">
+      <DependentUpon>FrmEntregaCartoneriaCodigoBarras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmImpresionHojas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmImpresionHojas.Designer.cs">
+      <DependentUpon>FrmImpresionHojas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmGeneracionCartonesVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmGeneracionCartonesVendidos.Designer.cs">
+      <DependentUpon>FrmGeneracionCartonesVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmCartonesFaltantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmCartonesFaltantes.Designer.cs">
+      <DependentUpon>FrmCartonesFaltantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmModificarRangoCartones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmModificarRangoCartones.Designer.cs">
+      <DependentUpon>FrmModificarRangoCartones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmProgramarJuego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\FrmProgramarJuego.Designer.cs">
+      <DependentUpon>FrmProgramarJuego.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmListadoCartones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmListadoCartones.Designer.cs">
+      <DependentUpon>FrmListadoCartones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmListadoCartonesVendidosDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Juego\Reportes\FrmListadoCartonesVendidosDetalle.Designer.cs">
+      <DependentUpon>FrmListadoCartonesVendidosDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsEncabezadoCajaUsuario.cs">
+      <DependentUpon>DtsEncabezadoCajaUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsEncabezadoCajaUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsEncabezadoCajaUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsEncabezadoPlanillaJuego.cs">
+      <DependentUpon>DtsEncabezadoPlanillaJuego.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsEncabezadoPlanillaJuego.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsEncabezadoPlanillaJuego.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsImpresionCartones.cs">
+      <DependentUpon>DtsImpresionCartones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsImpresionCartones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsImpresionCartones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsPlanilla.cs">
+      <DependentUpon>DtsPlanilla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\DataSets\DtsPlanilla.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsPlanilla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\ReporteCajaUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCajaUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\SubReportePlanillaJuegoPremios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubReportePlanillaJuegoPremios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\SubReportePlanillaJuegoRecaudo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubReportePlanillaJuegoRecaudo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\SubReportePlanillaJuegoVendedores.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubReportePlanillaJuegoVendedores.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmVisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FrmVisor.Designer.cs">
+      <DependentUpon>FrmVisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\ReporteHojasJuego.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteHojasJuego.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\ReportePlanillaJuego.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePlanillaJuego.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\ReportePlanillasVendedor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePlanillasVendedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ItemCombo.cs" />
+    <Compile Include="Model\ListasGenericas.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validator\DialogRenovacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Validator\DialogRenovacion.Designer.cs">
+      <DependentUpon>DialogRenovacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validator\DialogSerial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Validator\DialogSerial.Designer.cs">
+      <DependentUpon>DialogSerial.cs</DependentUpon>
+    </Compile>
+    <Content Include="Graficos\IconoCaja.ico" />
+    <Content Include="Graficos\Iconos\Acerca.png" />
+    <Content Include="Graficos\Iconos\Ajustes.png" />
+    <Content Include="Graficos\Iconos\Auditoria.png" />
+    <Content Include="Graficos\Iconos\Avanzar.png" />
+    <Content Include="Graficos\Iconos\Cerrar.png" />
+    <Content Include="Graficos\Iconos\change.png" />
+    <Content Include="Graficos\Iconos\Ciudades.png" />
+    <Content Include="Graficos\Iconos\Consultar.png" />
+    <Content Include="Graficos\Iconos\Detener.png" />
+    <Content Include="Graficos\Iconos\edit.png" />
+    <Content Include="Graficos\Iconos\edit32.png" />
+    <Content Include="Graficos\Iconos\exchange.png" />
+    <Content Include="Graficos\Iconos\Gastos.png" />
+    <Content Include="Graficos\Iconos\Impresora.png" />
+    <Content Include="Graficos\Iconos\look.png" />
+    <Content Include="Graficos\Iconos\lookuser.png" />
+    <Content Include="Graficos\Iconos\Modulo.png" />
+    <Content Include="Graficos\Iconos\Monedas.png" />
+    <Content Include="Graficos\Iconos\Mostrar.png" />
+    <Content Include="Graficos\Iconos\newuser.png" />
+    <Content Include="Graficos\Iconos\Paises.png" />
+    <Content Include="Graficos\Iconos\pencil.png" />
+    <Content Include="Graficos\Iconos\Permisos.png" />
+    <Content Include="Graficos\Iconos\PorcentajeSocios.png" />
+    <Content Include="Graficos\Iconos\Premios.png" />
+    <Content Include="Graficos\Iconos\reference.png" />
+    <Content Include="Graficos\Iconos\save.png" />
+    <Content Include="Graficos\Iconos\Usuarios.png" />
+    <None Include="Caja.Escritorio_TemporaryKey.pfx" />
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoCajaUsuario.xsc">
+      <DependentUpon>DtsEncabezadoCajaUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoCajaUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsEncabezadoCajaUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoCajaUsuario.xss">
+      <DependentUpon>DtsEncabezadoCajaUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoPlanillaJuego.xsc">
+      <DependentUpon>DtsEncabezadoPlanillaJuego.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoPlanillaJuego.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsEncabezadoPlanillaJuego.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsEncabezadoPlanillaJuego.xss">
+      <DependentUpon>DtsEncabezadoPlanillaJuego.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsImpresionCartones.xsc">
+      <DependentUpon>DtsImpresionCartones.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsImpresionCartones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsImpresionCartones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsImpresionCartones.xss">
+      <DependentUpon>DtsImpresionCartones.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsPlanilla.xsc">
+      <DependentUpon>DtsPlanilla.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsPlanilla.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsPlanilla.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\DataSets\DtsPlanilla.xss">
+      <DependentUpon>DtsPlanilla.xsd</DependentUpon>
+    </None>
+    <None Include="Graficos\Iconos\Windows\exclamation.png" />
+    <Content Include="Graficos\LogoCaja.png" />
+    <EmbeddedResource Include="Formularios\Administracion\FrmConsultarAuditoria.resx">
+      <DependentUpon>FrmConsultarAuditoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmDetalleAuditoria.resx">
+      <DependentUpon>FrmDetalleAuditoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmCiudades.resx">
+      <DependentUpon>FrmCiudades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmConfiguracionPorcentajes.resx">
+      <DependentUpon>FrmConfiguracionPorcentajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmGuardarUsuario.resx">
+      <DependentUpon>FrmGuardarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmLimiteGastos.resx">
+      <DependentUpon>FrmLimiteGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmMonedas.resx">
+      <DependentUpon>FrmMonedas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmPaises.resx">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmPermisos.resx">
+      <DependentUpon>FrmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmSocios.resx">
+      <DependentUpon>FrmSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmVendedores.resx">
+      <DependentUpon>FrmVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\FrmVendedorReferencias.resx">
+      <DependentUpon>FrmVendedorReferencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Modulos\FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Modulos\FrmDefinicionModulos.resx">
+      <DependentUpon>FrmDefinicionModulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Modulos\FrmRelacionModulosClientes.resx">
+      <DependentUpon>FrmRelacionModulosClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmCuadreCierre.resx">
+      <DependentUpon>FrmCuadreCierre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmDineroBancos.resx">
+      <DependentUpon>FrmDineroBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmGastosGenerales.resx">
+      <DependentUpon>FrmGastosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmGastosJuego.resx">
+      <DependentUpon>FrmGastosJuego.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmIngresosGenerales.resx">
+      <DependentUpon>FrmIngresosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmIngresosJuego.resx">
+      <DependentUpon>FrmIngresosJuego.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmPlanillaJuego.resx">
+      <DependentUpon>FrmPlanillaJuego.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Caja\FrmReporteUsuario.resx">
+      <DependentUpon>FrmReporteUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\General\MsgClave.resx">
+      <DependentUpon>MsgClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\General\MsgConfirm.resx">
+      <DependentUpon>MsgConfirm.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MsgConfirm1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\General\MsgExcepcion.resx">
+      <DependentUpon>MsgExcepcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmAgregarModulosProgramacion.resx">
+      <DependentUpon>FrmAgregarModulosProgramacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmCobroCartones.resx">
+      <DependentUpon>FrmCobroCartones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmDevolucionCartones.resx">
+      <DependentUpon>FrmDevolucionCartones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmDevolucionCodigoBarras.resx">
+      <DependentUpon>FrmDevolucionCodigoBarras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmEntregaCartoneria.resx">
+      <DependentUpon>FrmEntregaCartoneria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmEntregaCartoneriaCodigoBarras.resx">
+      <DependentUpon>FrmEntregaCartoneriaCodigoBarras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmImpresionHojas.resx">
+      <DependentUpon>FrmImpresionHojas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\Reportes\FrmGeneracionCartonesVendidos.resx">
+      <DependentUpon>FrmGeneracionCartonesVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\Reportes\FrmCartonesFaltantes.resx">
+      <DependentUpon>FrmCartonesFaltantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmModificarRangoCartones.resx">
+      <DependentUpon>FrmModificarRangoCartones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\FrmProgramarJuego.resx">
+      <DependentUpon>FrmProgramarJuego.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\Reportes\FrmListadoCartones.resx">
+      <DependentUpon>FrmListadoCartones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Juego\Reportes\FrmListadoCartonesVendidosDetalle.resx">
+      <DependentUpon>FrmListadoCartonesVendidosDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\ReporteCajaUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCajaUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\SubReportePlanillaJuegoPremios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubReportePlanillaJuegoPremios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\SubReportePlanillaJuegoRecaudo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubReportePlanillaJuegoRecaudo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\SubReportePlanillaJuegoVendedores.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubReportePlanillaJuegoVendedores.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FrmVisor.resx">
+      <DependentUpon>FrmVisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\ReporteHojasJuego.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteHojasJuego.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\ReportePlanillaJuego.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePlanillaJuego.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\ReportePlanillasVendedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePlanillasVendedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Validator\DialogRenovacion.resx">
+      <DependentUpon>DialogRenovacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Validator\DialogSerial.resx">
+      <DependentUpon>DialogSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Config\ConfiguracionApp.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caja.Common\Caja.Common.csproj">
+      <Project>{c16db1dd-2fb8-4cfd-9671-866acf0732e8}</Project>
+      <Name>Caja.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caja.Dominio\Caja.Dominio.csproj">
+      <Project>{baefc8a1-2b36-4126-bf90-5d273a28826b}</Project>
+      <Name>Caja.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caja.Entidades\Caja.Entidades.csproj">
+      <Project>{b8609059-3756-4731-b056-e59562089472}</Project>
+      <Name>Caja.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSON Viewer\JSON Viewer.csproj">
+      <Project>{EB2E042C-5214-441B-863E-E528B4D0AB50}</Project>
+      <Name>JSON Viewer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

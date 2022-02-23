@@ -1,0 +1,55 @@
+﻿@model Caja.MVC.Core.Models.ClienteModuloModel
+@using Caja.MVC.Core.App
+
+@{
+    ViewData["Title"] = "Editar Entrega Modulo";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Entrega Módulo</li>
+</ul>
+
+<hr class="mb-4">
+<form asp-action="Edit">
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Editar Entrega Modulo No. @Model.IdClienteModulo</h5>
+        </div>
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <input type="hidden" asp-for="IdClienteModulo" />
+                <div class="form-group col-xs-2 col-sm-2">
+                    <label asp-for="IdClienteModulo" class="control-label"></label>
+                    <input asp-for="IdClienteModulo" class="form-control" />
+                    <span asp-validation-for="IdClienteModulo" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer">
+            <div>
+                <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+                <a href="@Url.Action("Index", "EntregaModulos")" class="btn btn-secondary card-link">
+                    <i class="fa fa-backward"></i>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

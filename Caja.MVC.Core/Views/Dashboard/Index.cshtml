@@ -1,0 +1,78 @@
+﻿@model List<Caja.MVC.Core.Models.ConceptoGastoModel>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section Scripts {
+    <script src="~/lib/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="~/js/demo/dashboard.demo.js"></script>
+}
+
+<!-- BEGIN row -->
+<div class="row">
+
+    <div class="col-xl-4">
+        <!-- BEGIN card -->
+        <div class="card">
+            <!-- BEGIN card-body -->
+            <div class="card-body">
+
+                <fieldset>
+                    <legend>Indicador de Gastos Mensuales</legend>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-1">Detalle de Gastos Mensuales</h5>
+                        </div>
+                    </div>
+
+                    <!-- BEGIN table-responsive -->
+                    <div class="table-responsive mb-n2">
+                        <table class="table table-borderless mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th class="text-black">Concepto</th>
+                                    <th class="text-end pe-0">Consumo Mes</th>
+                                    <th class="text-end pe-0">Limite Máximo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td><span class="badge bg-info-transparent-2 text-info">@item.Descripcion</span></td>
+                                        <td class="text-end pe-0">@item.Valor</td>
+                                        <td class="text-end pe-0">@item.ValorMaximo</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END table-responsive -->
+                </fieldset>                                
+            </div>
+            <!-- END card-body -->
+        </div>
+        <!-- END card -->
+    </div>
+
+    <!--<div class="col-xl-6">-->
+        <!-- BEGIN card -->
+        <!--<div class="card mb-3">-->
+            <!-- BEGIN card-body -->
+            <!--<div class="card-body">
+                <div class="d-flex mb-3">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-1">Análisis de Gastos Mensuales</h5>
+                        <div class="fs-13px">Análisis de Gastos Mensuales</div>
+                    </div>
+                    <a href="#" data-bs-toggle="dropdown" class="text-muted"><i class="fa fa-redo"></i></a>
+                </div>
+                <div id="chart"></div>
+            </div>-->
+            <!-- END card-body -->
+        <!--</div>-->
+        <!-- END card -->
+    <!--</div>-->
+</div>
+<!-- END row -->

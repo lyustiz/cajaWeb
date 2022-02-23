@@ -1,0 +1,98 @@
+﻿@model List<Caja.MVC.Core.Models.VendedorModel>
+
+@{
+    ViewData["Title"] = "Vendedores";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>    
+    <li class="breadcrumb-item active">Vendedores</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "Vendedores")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- default table -->
+        @using (Html.BeginForm("Index", "Vendedores", FormMethod.Get))
+        {
+            <p>
+                Filtro: @Html.TextBox("SearchString")
+                <input type="submit" value="Buscar" />
+            </p>
+        }
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var registro in Model)
+                    {
+                        <tr>
+                            <th scope="row">@registro.Documento</th>
+                            <td>@registro.Nombres</td>
+                            <td>@registro.Apellidos</td>
+                            <td>@registro.Direccion</td>
+                            <td>@registro.Celular</td>
+                            <td>@registro.Telefono</td>
+                            <td>
+                                @if (registro.Estado == "A")
+                                {
+                                    <span class="badge bg-success-transparent-2 text-success" style="min-width: 60px;">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger-transparent-2 text-danger" style="min-width: 60px;">Inactivo</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", "Vendedores", new { id = registro.Id })
+                                @if (registro.Estado == "A")
+                                {
+                                    @Html.ActionLink("Inactivar", "State", "Vendedores", new { id = registro.Id })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Activar", "State", "Vendedores", new { id = registro.Id })
+                                }
+                                @Html.ActionLink("Referencias", "Index", "Referencias", new { idVendedor = registro.Id })
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

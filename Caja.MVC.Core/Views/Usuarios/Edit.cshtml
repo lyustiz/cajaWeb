@@ -1,0 +1,130 @@
+﻿@model Caja.MVC.Core.Models.UsuarioModel
+
+@{
+    ViewData["Title"] = "Modificar Usuario";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">Usuarios</a></li>
+    <li class="breadcrumb-item active">Administración de Usuarios</li>
+</ul>
+
+<hr class="mb-4">
+
+<form asp-action="Edit">
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Modificar Usuario</h5>
+        </div>
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Usuario" class="control-label"></label>
+                    <input asp-for="Usuario" class="form-control" readonly />
+                    <span asp-validation-for="Usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="NombreCompleto" class="control-label"></label>
+                    <input asp-for="NombreCompleto" class="form-control" />
+                    <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                </div>
+            </div>           
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Clave" class="control-label"></label>
+                    <input asp-for="Clave" class="form-control" />
+                    <span asp-validation-for="Clave" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="ConfirmarClave" class="control-label"></label>
+                    <input asp-for="ConfirmarClave" class="form-control" />
+                    <span asp-validation-for="ConfirmarClave" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="ClaveAjustes" class="control-label"></label>
+                    <input asp-for="ClaveAjustes" class="form-control" />
+                    <span asp-validation-for="ClaveAjustes" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="ConfirmarClaveAjustes" class="control-label"></label>
+                    <input asp-for="ConfirmarClaveAjustes" class="form-control" />
+                    <span asp-validation-for="ConfirmarClaveAjustes" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <label class="control-label">Perfiles</label>
+            <hr />
+            <div class="row">
+                <div class="col-lg-6">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">
+                                    Id
+                                <th scope="col">
+                                    Nombre
+                                </th>
+                                <th scope="col">
+                                    Asignado
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Perfiles.Count(); i++)
+                            {
+                                <tr>
+                                    <td scope="row">
+                                        @Html.TextBoxFor(modelItem => Model.Perfiles[i].Id, new { @class = "form-control", @readonly = true })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(modelItem => Model.Perfiles[i].Nombre, new { @class = "form-control", @readonly = true })
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            @Html.CheckBoxFor(modelItem => Model.Perfiles[i].Seleccionado, new { @class = "form-check-input" })
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+                <div class="card-footer">
+                    <div>
+                        <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+                        <a href="@Url.Action("Index", "Usuarios")" class="btn btn-secondary card-link">
+                            <i class="fa fa-backward"></i>
+                            Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+</form>
+
+

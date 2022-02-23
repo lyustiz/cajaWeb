@@ -1,0 +1,144 @@
+﻿@model Caja.MVC.Core.Models.ClienteModuloModel
+@using Caja.MVC.Core.App
+
+@{
+    ViewData["Title"] = "Crear Modulo";    
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Definición Módulo</li>
+</ul>
+
+<hr class="mb-4">
+<form asp-action="Create">
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Nuevo Modulo</h5>
+    </div>
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group col-xs-6 col-sm-6">
+                <input type="text" name="search" id="search" placeholder="Search..." />
+            </div>
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">N° Documento</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var registro in Model.ListaClientes)
+                    {
+                    <tr>
+                        <td scope="row">@registro.Id</td>
+                        <td>@registro.Nombres</td>
+                        <td>@registro.NumeroDocumento</td>
+                        <td>@registro.Celular</td>
+                        <td><label><input type='checkbox'  asp-for="@registro.Selected" value="@registro.Id" onclick='handleClick(this);'></label></td>
+                        
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="hidden" asp-for="IdCliente" />
+            <div class="form-group col-xs-6 col-sm-6">
+                <label asp-for="ListaModulos" class="control-label"></label>
+                <select asp-for="ListaModulos" asp-items="Model.ListaModulos" class="selectpicker form-control" multiple="multiple">
+                    @*<option value="">Seleccione un Módulo</option>*@
+                </select>
+            </div>
+            <div class="form-group col-xs-6 col-sm-6">
+                <label asp-for="ListaModulosSeleccionados" class="control-label"></label>
+                <select asp-for="ListaIdModulosSeleccionados" asp-items="Model.ListaModulosSeleccionados" class="selectpicker form-control" multiple="multiple">
+                    @*<option value="">Seleccione un Módulo</option>*@
+                </select>
+            </div>
+            <div class="form-group col-xs-6 col-sm-6">
+                <label asp-for="IdJuegoInicio" class="control-label"></label>
+                <select asp-for="IdJuegoInicio" asp-items="Model.ListaJuegos" class="form-control">
+                    <option value="">Seleccione Juego Inicio</option>
+                </select>
+            </div>
+            <div class="form-group col-xs-6 col-sm-6">
+                <label asp-for="IdJuegoFin" class="control-label"></label>
+                <select asp-for="IdJuegoFin" asp-items="Model.ListaJuegos" class="form-control">
+                    <option value="">Seleccione Juego Fin</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer">
+        <div>
+            <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+            <a href="@Url.Action("Index", "EntregaModulo")" class="btn btn-secondary card-link">
+                <i class="fa fa-backward"></i>
+                Volver
+            </a>
+        </div>
+    </div>
+</div>
+</form>
+
+<script>
+
+    function handleClick(cb) {
+        if (cb.checked) {
+            document.getElementById('IdCliente').value = cb.value;
+        }
+        else {
+            document.getElementById('IdCliente').value = 0;
+        }
+        
+        console.log("Clicked, new value = " + cb.value);
+    }
+    document.getElementById('ListaModulos').ondblclick = function(){
+        return !$('#ListaModulos option:selected').remove().appendTo('#ListaIdModulosSeleccionados');
+    };
+    document.getElementById('ListaIdModulosSeleccionados').ondblclick = function(){
+        return !$('#ListaIdModulosSeleccionados option:selected').remove().appendTo('#ListaModulos');
+    };
+
+
+    document.getElementById('ListaModulos').ondblclick = function () {
+        return !$('#ListaModulos option:selected').remove().appendTo('#ListaIdModulosSeleccionados');
+    };
+    //(dataGridViewFields.DataSource as DataTable).DefaultView.RowFilter = string.Format("Field = '{0}'", textBoxFilter.Text);
+
+    const searchInput = document.getElementById("search");
+    const rows = document.querySelectorAll("tbody tr");
+    console.log(rows);
+    searchInput.addEventListener("keyup", function (event) {
+        const q = event.target.value.toLowerCase();
+        console.log(q);
+
+        rows.forEach((row) => {
+                row.querySelectorAll("td")[0].textContent.toLowerCase().includes(q)
+                || row.querySelectorAll("td")[1].textContent.toLowerCase().includes(q)
+                || row.querySelectorAll("td")[2].textContent.toLowerCase().includes(q)
+                || row.querySelectorAll("td")[3].textContent.toLowerCase().includes(q)
+                ? (row.style.display = "table-row")
+                : (row.style.display = "none");
+        });
+    });
+</script>

@@ -1,0 +1,84 @@
+﻿@model List<Caja.MVC.Core.Models.UsuarioModel>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">Usuarios</a></li>
+    <li class="breadcrumb-item active">Administración de Usuarios</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "Usuarios")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- default table -->
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Nombre Completo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var usuario in Model)
+                    {
+                <tr>
+                    <th scope="row">@usuario.Id</th>
+                    <td>@usuario.Usuario</td>
+                    <td>@usuario.NombreCompleto</td>
+                    <td>
+                        @if (usuario.Estado == "H")
+                        {
+                            <span class="badge bg-success-transparent-2 text-success" style="min-width: 60px;">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger-transparent-2 text-danger" style="min-width: 60px;">Inactivo</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "Usuarios", new { id = usuario.Id })
+                        @if (usuario.Estado == "H")
+                        {
+                            @Html.ActionLink("Inactivar", "State", "Usuarios", new { id = usuario.Id })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Activar", "State", "Usuarios", new { id = usuario.Id })
+                        }
+                    </td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

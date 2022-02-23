@@ -1,0 +1,68 @@
+﻿@model Caja.MVC.Core.Models.ClienteModel
+@using Caja.MVC.Core.App
+
+@{
+    ViewData["Title"] = "Crear Cliente";    
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Clientes</li>
+</ul>
+
+<hr class="mb-4">
+
+<form asp-action="Create">
+
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Nuevo Cliente</h5>
+        </div>
+        <div class="card-body">            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Nombres" class="control-label"></label>
+                    <input asp-for="Nombres" class="form-control" />
+                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Celular" class="control-label"></label>
+                    <input type="tel" asp-for="Celular" class="form-control" />
+                    <span asp-validation-for="Celular" class="text-danger"></span>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4">
+                    <label asp-for="Barrio" class="control-label"></label>
+                    <input asp-for="Barrio" class="form-control" />
+                    <span asp-validation-for="Barrio" class="text-danger"></span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="card-footer">
+            <div>
+                <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+                <a href="@Url.Action("Index", "Cliente")" class="btn btn-secondary card-link">
+                    <i class="fa fa-backward"></i>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+

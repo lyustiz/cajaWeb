@@ -1,0 +1,85 @@
+﻿@model List<Caja.MVC.Core.Models.ModuloModel>
+
+@{
+    ViewData["Title"] = "Definición de Módulos";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Definición de Módulos</li>
+</ul>
+
+<hr class="mb-4">
+
+<div class="card">
+    <div class="card-header">
+        <a href="@Url.Action("Create", "DefinicionModulo")" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </a>
+    </div>
+    <div class="card-body">
+       
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Cartón 1</th>
+                    <th scope="col">Serie 1</th>
+                    <th scope="col">Cartón 2</th>
+                    <th scope="col">Serie 2</th>
+                    <th scope="col">Cartón 3</th>
+                    <th scope="col">Serie 3</th>
+                    <th scope="col">Cartón 4</th>
+                    <th scope="col">Serie 4</th>
+                    <th scope="col">Cartón 5</th>
+                    <th scope="col">Serie 5</th>
+                    <th scope="col">Cartón 6</th>
+                    <th scope="col">Serie 6</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    @foreach (var registro in Model)
+                    {
+                <tr>
+                    <th scope="row">@registro.Numero</th>
+                    <td>@registro.Carton1</td>
+                    <td>@registro.Serie1</td>
+                    <td>@registro.Carton2</td>
+                    <td>@registro.Serie2</td>
+                    <td>@registro.Carton3</td>
+                    <td>@registro.Serie3</td>
+                    <td>@registro.Carton4</td>
+                    <td>@registro.Serie4</td>
+                    <td>@registro.Carton5</td>
+                    <td>@registro.Serie5</td>
+                    <td>@registro.Carton6</td>
+                    <td>@registro.Serie6</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "DefinicionModulo", new { id = registro.Id })
+                    </td>
+                </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-warning">
+                                <strong>Error!</strong> No existe información para mostrar.
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

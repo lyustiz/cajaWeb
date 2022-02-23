@@ -1,0 +1,84 @@
+﻿@model List<Caja.MVC.Core.Models.SocioModel>
+
+@{
+    ViewData["Title"] = "Porcentajes Socios";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">General</a></li>
+    <li class="breadcrumb-item active">Porcentajes Socios</li>
+</ul>
+
+<hr class="mb-4">
+
+@using (@Html.BeginForm("Save", "Socios", FormMethod.Post))
+{
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+        </div>
+        <div class="card-body">
+            <!-- default table -->
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" width="10%">
+                            Id
+                        </th>
+                        <th scope="col" width="15%">
+                            Código
+                        </th>
+                        <th scope="col">
+                            Nombre Completo
+                        </th>
+                        <th scope="col" width="15%">
+                            Porcentaje
+                        </th>
+                        <th scope="col">
+                            Permisos
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        <tr>
+                            <td scope="row">
+                                @Html.TextBoxFor(modelItem => Model[i].Id, new { @class = "form-control", @readonly = true })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(modelItem => Model[i].Codigo, new { @class = "form-control", @readonly = true })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(modelItem => Model[i].NombreSocio, new { @class = "form-control", @readonly = true })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => Model[i].Porcentaje, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => Model[i].Porcentaje, "", new { @class = "text-danger" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(modelItem => Model[i].Permisos, new { @class = "form-control", @readonly = true })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

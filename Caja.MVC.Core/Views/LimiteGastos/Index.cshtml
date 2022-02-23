@@ -1,0 +1,72 @@
+﻿@model List<Caja.MVC.Core.Models.ConceptoGastoModel>
+
+@{
+    ViewData["Title"] = "Límite Gastos";
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">General</a></li>
+    <li class="breadcrumb-item active">Límite Gastos</li>
+</ul>
+
+<hr class="mb-4">
+
+@using (@Html.BeginForm("Save", "LimiteGastos", FormMethod.Post))
+{
+    <div class="card">
+        <div class="card-header">
+            <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+        </div>
+        <div class="card-body">
+            <!-- default table -->
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">
+                            Id
+                        </th>
+                        <th scope="col">
+                            Concepto
+                        </th>
+                        <th scope="col">
+                            Límite Máximo
+                        </th>
+                        <th scope="col">
+                            Controlado
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                    <tr>
+                        <td scope="row">
+                            @Html.TextBoxFor(modelItem => Model[i].IdConceptoGasto, new { @class = "form-control", @readonly = true })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(modelItem => Model[i].Descripcion, new { @class = "form-control", @readonly = true })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => Model[i].ValorMaximo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => Model[i].ValorMaximo, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <div class="form-check form-switch">
+                                @Html.CheckBoxFor(modelItem => Model[i].Controlado, new { @class = "form-check-input" })
+                            </div>
+                        </td>
+                    </tr>
+                    }
+
+                    @*<tr>
+                        <td colspan="4"><input type="submit" value="Post"></td>
+                    </tr>*@
+                    
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

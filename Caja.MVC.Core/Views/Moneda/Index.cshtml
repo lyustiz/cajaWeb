@@ -1,0 +1,99 @@
+﻿@model Caja.MVC.Core.Models.MonedaModel
+
+@{
+    ViewData["Title"] = "Monedas";
+}
+
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item"><a href="#">General</a></li>
+    <li class="breadcrumb-item active">Definición Moneda</li>
+</ul>
+
+<hr class="mb-4">
+
+@using (Html.BeginForm("Save", "Moneda", FormMethod.Post))
+{
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <div class="card">
+
+        <div class="card-header">
+            <h5 class="card-title">Administración Moneda</h5>
+        </div>
+        <div class="card-body">
+
+            @Html.AntiForgeryToken()
+            <div class="mb-3 row">
+                <label for="lblFormato" class="col-sm-2 col-form-label">Formato</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(e => e.Formato, new { @class = "form-control", @readonly = true })
+                </div>
+            </div>
+            <fieldset class="mb-2">
+                <div class="row">
+                    <label class="col-form-label col-sm-2 pt-0">Tipo Moneda</label>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            @*<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="">*@
+                            @Html.RadioButtonFor(e => e.Tipo, "$", new { @class = "form-check-input", @id = "rbtPesos" })
+                            <label class="form-check-label" for="gridRadios1">
+                                Pesos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            @*<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">*@
+                            @Html.RadioButtonFor(e => e.Tipo, "U$", new { @class = "form-check-input", @id = "rbtDolar" })
+                            <label class="form-check-label" for="gridRadios2">
+                                Dolar
+                            </label>
+                        </div>
+                        <div class="form-check disabled">
+                            @*<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">*@
+                            @Html.RadioButtonFor(e => e.Tipo, "€", new { @class = "form-check-input", @id = "rbtEuros" })
+                            <label class="form-check-label" for="gridRadios3">
+                                Euro
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="card-footer">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    document.getElementById('rbtPesos').onclick = function () {
+        document.getElementById('Formato').value = '$ {0:#,##0}';
+    }
+    document.getElementById('rbtDolar').onclick = function () {
+        document.getElementById('Formato').value = 'U$ {0:#,##0.00}';
+    }
+    document.getElementById('rbtEuros').onclick = function () {
+        document.getElementById('Formato').value = '{0:#,##0.00} €';
+    }
+</script>
+
+

@@ -1,0 +1,84 @@
+﻿@model Caja.MVC.Core.Models.ModuloModel
+@using Caja.MVC.Core.App
+
+@{
+    ViewData["Title"] = "Crear Modulo";    
+}
+
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Administración</a></li>
+    <li class="breadcrumb-item">Módulos</li>
+    <li class="breadcrumb-item active">Definición Módulo</li>
+</ul>
+
+<hr class="mb-4">
+<form asp-action="Create">
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            <strong>Correcto!</strong> @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewBag.ErrorMessage
+        </div>
+    }
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Nuevo Modulo</h5>
+    </div>
+    <div class="card-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group col-xs-2 col-sm-2">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton1" class="control-label"></label>
+                <input asp-for="Carton1" class="form-control" />
+                <span asp-validation-for="Carton1" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton2" class="control-label"></label>
+                <input asp-for="Carton2" class="form-control" />
+                <span asp-validation-for="Carton2" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton3" class="control-label"></label>
+                <input asp-for="Carton3" class="form-control" />
+                <span asp-validation-for="Carton3" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton4" class="control-label"></label>
+                <input asp-for="Carton4" class="form-control" />
+                <span asp-validation-for="Carton4" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton5" class="control-label"></label>
+                <input asp-for="Carton5" class="form-control" />
+                <span asp-validation-for="Carton5" class="text-danger"></span>
+            </div>
+            <div class="form-group col-xs-1 col-sm-1">
+                <label asp-for="Carton6" class="control-label"></label>
+                <input asp-for="Carton6" class="form-control" />
+                <span asp-validation-for="Carton6" class="text-danger"></span>
+            </div>         
+            
+        </div>
+    </div>
+    <div class="card-footer">
+        <div>
+            <button type="submit" class="btn btn-primary card-link">Guardar Cambios</button>
+            <a href="@Url.Action("Index", "DefinicionModulo")" class="btn btn-secondary card-link">
+                <i class="fa fa-backward"></i>
+                Volver
+            </a>
+        </div>
+    </div>
+</div>
+</form>

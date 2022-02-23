@@ -1,0 +1,248 @@
+﻿{
+  "sidebarMenu": [
+    {
+      "text": "Menú Caja",
+      "is_header": true
+    },    
+    {
+      "controller": "Dashboard",
+      "action": "index",
+      "icon": "fa fa-chart-pie",
+      "text": "Estadísticas"
+    },    
+    {
+      "is_divider": true
+    },
+    {
+      "text": "Administración",
+      "is_header": true
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-laptop",
+      "text": "General",
+      "children": [
+        {
+          "controller": "Moneda",
+          "action": "Index",
+          "text": "Denifición Moneda"
+        },
+        {
+          "controller": "Paises",
+          "action": "Index",
+          "text": "Paises"
+        },
+        {
+          "controller": "PorcentajePremios",
+          "action": "Index",
+          "text": "Porcentaje Premios"
+        },
+        {
+          "controller": "LimiteGastos",
+          "action": "Index",
+          "text": "Límites de Gastos"
+        },
+        {
+          "controller": "Socios",
+          "action": "Index",
+          "text": "Porcentaje Socios"
+        }
+      ]
+    },
+    {      
+      "icon": "fa fa-table",
+      "text": "Módulos",
+      "children": [
+        {
+          "controller": "DefinicionModulo",
+          "action": "Index",
+          "text": "Definición de Módulos"
+        },
+        {
+          "controller": "Cliente",
+          "action": "Index",
+          "text": "Clientes"
+        },
+        {
+          "controller": "EntregaModulos",
+          "action": "Index",
+          "text": "Entrega Módulos a Clientes"
+        }
+      ]
+    },
+    {      
+      "icon": "fa fa-user-circle",
+      "text": "Usuarios",
+      "children": [
+        {
+          "controller": "Usuarios",
+          "action": "Index",
+          "text": "Administración Usuarios"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Administración Permisos"
+        }
+      ]
+    },
+    {
+      "controller": "Vendedores",
+      "action": "Index",
+      "icon": "fa fa-user-circle",
+      "text": "Vendedores"
+    },
+    //{
+    //  "controller": "Pages",
+    //  "action": "Register",
+    //  "icon": "fa fa-database",
+    //  "text": "Auditoría"
+    //},
+    {
+      "is_divider": true
+    },
+    {
+      "text": "Juego",
+      "is_header": true
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-file-alt",
+      "text": "Procesos",
+      "children": [
+        {
+          "controller": "ProgramacionJuego",
+          "action": "Index",
+          "icon": "fa fa-user-circle",
+          "text": "Programar Juego"
+        },
+        {
+          "controller": "EntregaCartones",
+          "action": "Index",
+          "icon": "fa fa-calendar",
+          "text": "Entrega Cartonería"
+        },
+        {
+          "controller": "CobroCartones",
+          "action": "Index",
+          "icon": "fa fa-cog",
+          "text": "Cobro de Cartones"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-question-circle",
+          "text": "Devolución de Hojas No Vendidas"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-fingerprint",
+          "text": "Cerrar Juego"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-fingerprint",
+          "text": "Modificar Rango de Cartones Impresos"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-fingerprint",
+          "text": "Impresión de Hojas por Usuario"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-fingerprint",
+          "text": "Entrega Cartonería Código de Barras"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "icon": "fa fa-fingerprint",
+          "text": "Agregar Módulos Juego"
+        }
+      ]
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-file-alt",
+      "text": "Informes",
+      "children": [
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Cartones Entregados en el Juego"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Listado de Cartones sin Registro"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Archivo de Cartones Vendidos"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Listado de Cartones por Vendedor"
+        }
+      ]
+    },
+    {
+      "is_divider": true
+    },
+    {
+      "text": "Caja",
+      "is_header": true
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-file-alt",
+      "text": "Procesos",
+      "children": [
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Gastos Generales"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Ingresos Generales"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Cuadre para Cierre"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Dinero Bancos"
+        }
+      ]
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-file-alt",
+      "text": "Informes",
+      "children": [
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Planilla por Juego"
+        },
+        {
+          "controller": "Pages",
+          "action": "Register",
+          "text": "Informe de Caja Usuario"
+        }
+      ]
+    }
+  ]
+}
